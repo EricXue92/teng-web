@@ -256,6 +256,39 @@
     }
   }
 
+  /* ---------------- projects ---------------- */
+  function projectHTML(pr) {
+    const link = safeUrl(pr.link);
+    const title = link
+      ? `<a href="${esc(link)}"${linkAttrs(link)}>${esc(pr.title)}</a>`
+      : esc(pr.title);
+    const meta = [pr.funder, pr.period, pr.amount].filter(Boolean).map(esc).join(" · ");
+    const role = pr.role ? `<span class="tag">${esc(pr.role)}</span>` : "";
+    const desc = pr.description ? `<p class="desc">${esc(pr.description)}</p>` : "";
+    return `<li class="card project">${role}<h3>${title}</h3><div class="meta">${meta}</div>${desc}</li>`;
+  }
+
+  async function initProjects() {
+    const box = $("#projects-list");
+    if (!box) return;
+    try {
+      const projects = await window.SiteData.loadProjects();
+      const isOngoing = (p) => /^ongoing$/i.test(p.status || "");
+      const groups = [
+        ["Ongoing", projects.filter(isOngoing)],
+        ["Completed", projects.filter((p) => !isOngoing(p))],
+      ].filter(([, list]) => list.length);
+      box.innerHTML = groups.length
+        ? groups
+            .map(([name, list]) => `<section class="year-group"><h3>${name}</h3><ul class="project-list">${list.map(projectHTML).join("")}</ul></section>`)
+            .join("")
+        : `<p class="notice">No projects listed yet.</p>`;
+    } catch (err) {
+      console.error(err);
+      fail(box, "projects");
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initNav();
     initPublications();
@@ -263,5 +296,6 @@
     initNews();
     initHomeNews();
     initTeam();
+    initProjects();
   });
 })();

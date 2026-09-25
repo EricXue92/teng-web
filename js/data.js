@@ -24,6 +24,15 @@
     return rows.filter((r) => r.name);
   }
 
+  async function loadProjects() {
+    const rows = await loadCSV(cfg.PROJECTS_CSV_URL, "data/projects.csv");
+    const rank = (r) => (/^ongoing$/i.test(r.status || "") ? 0 : 1);
+    // Ongoing first, then newest period first (period like "2024–2026").
+    return rows
+      .filter((r) => r.title)
+      .sort((a, b) => rank(a) - rank(b) || (b.period || "").localeCompare(a.period || ""));
+  }
+
   function unescapeHTML(s) {
     const t = document.createElement("textarea");
     t.innerHTML = s || "";
@@ -72,5 +81,5 @@
       .sort((a, b) => (b.year || 0) - (a.year || 0) || a.title.localeCompare(b.title));
   }
 
-  window.SiteData = { loadNews, loadTeam, loadPublications };
+  window.SiteData = { loadNews, loadTeam, loadProjects, loadPublications };
 })();

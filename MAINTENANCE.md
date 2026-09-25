@@ -1,12 +1,13 @@
 # 网站维护指南（给滕老师）
 
-网站上的**团队动态（News）**和**团队成员（Team）**都来自一个 Google 表格。
+网站上的**团队动态（News）**、**团队成员（Team）**和**科研项目（Projects）**都来自 Google 表格。
 您只需要在表格里加一行或改一格，网站会在几分钟内自动更新，不需要碰任何代码。
 
 表格链接：
 
 - 团队动态（News）：https://docs.google.com/spreadsheets/d/1_nqWBsD7XeLpJ_eqm1PBBtPH2Y-am0o41axTltJBQiE/edit
 - 团队成员（Team）：https://docs.google.com/spreadsheets/d/1fkD6DYenQXB1iWBPmMnFbkzwvTQkwlECpPXvULxx5Kg/edit
+- 科研项目（Projects）：（待管理员填写）
 
 ---
 
@@ -49,16 +50,34 @@
 
 没有照片的成员会显示姓名首字母的圆形头像。
 
-## 三、照片怎么处理
+## 三、增加或修改科研项目
+
+1. 打开「科研项目（Projects）」表格。
+2. 新增一行，按列填写：
+
+| 列 | 填什么 | 例子 |
+|---|---|---|
+| title | 项目名称 | Carbon Responsibility Allocation in Prefabricated Supply Chains |
+| role | 您的角色：PI 或 Co-I | PI |
+| funder | 资助机构 | Research Grants Council (RGC) Early Career Scheme |
+| period | 起止年份 | 2025–2027 |
+| amount | 金额，可留空 | HK$ 1,000,000 |
+| status | 进行中填 Ongoing，已结题填 Completed | Ongoing |
+| description | 一两句项目简介 | Develops a fair allocation framework for … |
+| link | 项目网址，可留空 | |
+
+3. 项目结题后把 status 改成 **Completed**，网站会自动移到 Completed 区。
+
+## 四、照片怎么处理
 
 网站上的照片需要由管理员上传到服务器。请把照片发给管理员，并说明是谁的 / 哪条动态的。
 管理员上传后会告诉您一个路径（例如 `assets/img/team/zhang-san.jpg`），把它填进表格的 photo 或 image 列即可。
 
-## 四、论文列表
+## 五、论文列表
 
 Publications 页面直接读取您的 ORCID 记录，不需要维护。
 Scopus 会自动把新论文同步到 ORCID；如果某篇没有出现，登录 https://orcid.org 手动添加即可。
 
-## 五、其他内容
+## 六、其他内容
 
 简介、研究方向、课程、联系方式等文字变动很少，需要修改时告诉管理员。

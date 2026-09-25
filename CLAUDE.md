@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal/lab website for Dr. Yue TENG (Assistant Professor, Dept. of Building and Real Estate, PolyU). Plain HTML/CSS/JS, English only, no build step, no dependencies. Deployed with GitHub Pages from the `main` branch root (https://ericxue92.github.io/teng-web/); every push to `main` goes live within about a minute. Relative asset paths must stay relative because the site lives under a sub-path.
 
-**Hard constraint:** the site owner is non-technical. Anything that changes often (news, team) must stay editable through Google Sheets. Never move that content into files or ask the owner to edit code.
+**Hard constraint:** the site owner is non-technical. Anything that changes often (news, team, projects) must stay editable through Google Sheets. Never move that content into files or ask the owner to edit code.
 
 ## Commands
 
@@ -29,12 +29,12 @@ Three content tiers, each with a different owner and source:
 | Publications                           | ORCID public API, fetched live in the browser (CORS `*`); falls back to `data/publications.json` | `js/data.js` → `loadPublications`      |
 | Bio, research themes, courses, contact | Hard-coded in the HTML pages                                                                     | none                                   |
 
-- `js/config.js` is the only configuration file: the two Sheet CSV URLs and the ORCID id. Empty Sheet URLs make the loaders read `data/news.csv` / `data/team.csv` instead, which double as the Sheet column templates. Keep the CSV headers and the Sheet headers identical.
-- `js/csv.js` is a hand-written RFC-4180 parser; `js/data.js` returns plain objects; `js/main.js` does all rendering and only touches containers that exist on the current page (`#news-list`, `#team-current`, `#pub-list`, `#home-news`, `#home-pubs`, …). Adding a data-driven block means adding a container id and an `init*` function in `main.js`.
+- `js/config.js` is the only configuration file: the Sheet CSV URLs and the ORCID id. Empty Sheet URLs make the loaders read `data/news.csv` / `data/team.csv` / `data/projects.csv` instead, which double as the Sheet column templates. Keep the CSV headers and the Sheet headers identical.
+- `js/csv.js` is a hand-written RFC-4180 parser; `js/data.js` returns plain objects; `js/main.js` does all rendering and only touches containers that exist on the current page (`#news-list`, `#team-current`, `#projects-list`, `#pub-list`, `#home-news`, `#home-pubs`, …). Adding a data-driven block means adding a container id and an `init*` function in `main.js`.
 - `simplifyORCID` in `js/data.js` and `simplify` in `scripts/fetch_orcid.py` must stay in sync: they produce the same publication object shape.
-- The header and footer are duplicated verbatim in all six HTML pages. A nav or footer change must be applied to every page.
+- The header and footer are duplicated verbatim in all seven HTML pages. A nav or footer change must be applied to every page.
 - Colours, fonts and dark-mode values are CSS variables at the top of `css/style.css`.
 
 ## Docs for humans
 
-`MAINTENANCE.md` is the Chinese, non-technical guide for the site owner (how to add a news row or a team member in the Sheets). Keep it in step when the Sheet columns or accepted `role` / `status` / `category` values change.
+`MAINTENANCE.md` is the Chinese, non-technical guide for the site owner (how to add a news row or a team member in the Sheets). Keep it in step when the Sheet columns or accepted `role` / `status` / `category` values change. Projects follow the same pattern (`data/projects.csv`, `PROJECTS_CSV_URL`).
