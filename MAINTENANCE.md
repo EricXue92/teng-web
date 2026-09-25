@@ -7,7 +7,7 @@
 
 - 团队动态（News）：https://docs.google.com/spreadsheets/d/1_nqWBsD7XeLpJ_eqm1PBBtPH2Y-am0o41axTltJBQiE/edit
 - 团队成员（Team）：https://docs.google.com/spreadsheets/d/1fkD6DYenQXB1iWBPmMnFbkzwvTQkwlECpPXvULxx5Kg/edit
-- 科研项目（Projects）：（待管理员填写）
+- 科研项目（Projects）：https://docs.google.com/spreadsheets/d/1azAKximDZH-W7Aq6YqiSAR_lEkWU5_SQUV6YaCY2XF4/edit
 
 ---
 
