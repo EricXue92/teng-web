@@ -15,6 +15,17 @@
   const isExternal = (url) => /^https?:\/\//i.test(url);
   const linkAttrs = (url) => (isExternal(url) ? ' target="_blank" rel="noopener"' : "");
 
+  /* Only allow http(s), mailto and relative paths from user-editable data;
+     anything else (javascript:, data:, …) is dropped. */
+  const safeUrl = (url) => {
+    const u = String(url ?? "").trim();
+    if (!u) return "";
+    if (/^(https?:\/\/|mailto:)/i.test(u)) return u;
+    if (/^[a-z][a-z0-9+.-]*:/i.test(u)) return ""; // any other scheme
+    if (u.startsWith("//")) return "";
+    return u; // relative path such as team.html or assets/img/x.jpg
+  };
+
   const PUB_TYPES = {
     "journal-article": "Journal",
     "conference-paper": "Conference",
@@ -51,8 +62,9 @@
 
   /* ---------------- publications ---------------- */
   function pubHTML(p) {
-    const title = p.url
-      ? `<a class="title" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
+    const url = safeUrl(p.url);
+    const title = url
+      ? `<a class="title" href="${esc(url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
       : `<span class="title">${esc(p.title)}</span>`;
     const journal = p.journal ? `<em>${esc(p.journal)}</em>` : "";
     const year = p.year ? `${journal ? ", " : ""}${p.year}` : "";
@@ -118,15 +130,17 @@
 
   /* ---------------- news ---------------- */
   function newsTitle(n) {
-    return n.link
-      ? `<a class="title" href="${esc(n.link)}"${linkAttrs(n.link)}>${esc(n.title)}</a>`
+    const link = safeUrl(n.link);
+    return link
+      ? `<a class="title" href="${esc(link)}"${linkAttrs(link)}>${esc(n.title)}</a>`
       : `<span class="title">${esc(n.title)}</span>`;
   }
 
   function newsHTML(n) {
     const tag = n.category ? `<span class="tag">${esc(n.category)}</span>` : "";
     const desc = n.description ? `<p class="desc">${esc(n.description)}</p>` : "";
-    const img = n.image ? `<img src="${esc(n.image)}" alt="" loading="lazy">` : "";
+    const image = safeUrl(n.image);
+    const img = image ? `<img src="${esc(image)}" alt="" loading="lazy">` : "";
     return `<li class="news-item"><div class="date">${fmtDate(n.date)}</div><div>${tag}${newsTitle(n)}${desc}${img}</div></li>`;
   }
 
@@ -183,15 +197,19 @@
   }
 
   function avatarHTML(m) {
-    return m.photo
-      ? `<img class="avatar" src="${esc(m.photo)}" alt="${esc(m.name)}" loading="lazy">`
+    const photo = safeUrl(m.photo);
+    return photo
+      ? `<img class="avatar" src="${esc(photo)}" alt="${esc(m.name)}" loading="lazy">`
       : `<div class="avatar" aria-hidden="true">${esc(initials(m.name))}</div>`;
   }
 
   function memberHTML(m) {
-    const name = m.link ? `<a href="${esc(m.link)}"${linkAttrs(m.link)}>${esc(m.name)}</a>` : esc(m.name);
+    const link = safeUrl(m.link);
+    const name = link ? `<a href="${esc(link)}"${linkAttrs(link)}>${esc(m.name)}</a>` : esc(m.name);
     const year = m.year ? ` · ${esc(m.year)}` : "";
-    const email = m.email ? `<div class="email"><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></div>` : "";
+    const email = /^[^\s@]+@[^\s@]+$/.test(m.email || "")
+      ? `<div class="email"><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></div>`
+      : "";
     const bio = m.bio ? `<p class="bio">${esc(m.bio)}</p>` : "";
     return `<div class="member">${avatarHTML(m)}<div><div class="name">${name}</div><div class="role">${esc(m.role)}${year}</div>${bio}${email}</div></div>`;
   }
@@ -223,7 +241,8 @@
         alumni.innerHTML = old.length
           ? `<ul class="alumni-list">${old
               .map((m) => {
-                const name = m.link ? `<a href="${esc(m.link)}"${linkAttrs(m.link)}>${esc(m.name)}</a>` : esc(m.name);
+                const link = safeUrl(m.link);
+                const name = link ? `<a href="${esc(link)}"${linkAttrs(link)}>${esc(m.name)}</a>` : esc(m.name);
                 const meta = [m.role, m.year].filter(Boolean).join(", ");
                 return `<li><span class="name">${name}</span><span class="muted">${esc(meta)}</span>${m.bio ? `<div class="muted">${esc(m.bio)}</div>` : ""}</li>`;
               })
