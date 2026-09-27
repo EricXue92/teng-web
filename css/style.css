@@ -338,7 +338,7 @@ main { padding: 48px 0 72px; }
   color: var(--muted);
   margin-bottom: 14px;
 }
-.members { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+.members { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
 
 .member {
   display: flex;
@@ -346,9 +346,10 @@ main { padding: 48px 0 72px; }
   align-items: flex-start;
 }
 .avatar {
-  flex: 0 0 64px;
-  width: 64px; height: 64px;
+  flex: 0 0 96px;
+  width: 96px; height: 96px;
   border-radius: 50%;
+  border: 1px solid var(--line);
   object-fit: cover;
   background: var(--accent-soft);
   color: var(--accent-text);
@@ -357,7 +358,7 @@ main { padding: 48px 0 72px; }
   justify-content: center;
   font-family: var(--font-head);
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
 }
 .member .name { font-weight: 600; }
 .member .role { color: var(--muted); font-size: 0.88rem; }
