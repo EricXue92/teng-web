@@ -16,14 +16,14 @@
 1. 打开「团队动态（News）」表格。
 2. 在最后一行下面新增一行，按列填写：
 
-| 列 | 填什么 | 例子 |
-|---|---|---|
-| date | 日期，格式 年-月-日 | 2025-09-01 |
-| title | 标题（一句话） | Paper accepted in Building and Environment |
-| description | 一两句说明，可留空 | Our work on … has been accepted. |
-| category | 类别，任选一个：Award / Publication / Event / Recruitment | Publication |
-| link | 相关网址，可留空 | https://doi.org/10.1016/… |
-| image | 图片路径，通常留空（见第三节） | |
+| 列          | 填什么                                                    | 例子                                       |
+| ----------- | --------------------------------------------------------- | ------------------------------------------ |
+| date        | 日期，格式 年-月-日                                       | 2025-09-01                                 |
+| title       | 标题（一句话）                                            | Paper accepted in Building and Environment |
+| description | 一两句说明，可留空                                        | Our work on … has been accepted.           |
+| category    | 类别，任选一个：Award / Publication / Event / Recruitment | Publication                                |
+| link        | 相关网址，可留空                                          | https://doi.org/10.1016/…                  |
+| image       | 图片路径，通常留空（见第三节）                            |                                            |
 
 3. 不用点保存，Google 表格会自动保存。约 1 分钟后刷新网站即可看到。
 
@@ -34,16 +34,16 @@
 1. 打开「团队成员（Team）」表格。
 2. 新增一行，按列填写：
 
-| 列 | 填什么 | 例子 |
-|---|---|---|
-| name | 姓名 | Zhang San |
-| role | 身份，任选一个：Postdoc / PhD Student / MPhil Student / Research Assistant / Visiting Scholar | PhD Student |
-| status | 在读填 Current，已毕业填 Alumni | Current |
-| year | 起止年份 | 2023– 或 2020–2024 |
-| email | 邮箱，可留空 | zhang.san@connect.polyu.hk |
-| photo | 照片路径，通常留空（见第三节） | |
-| bio | 一句话研究方向或去向 | Embodied carbon of modular buildings. |
-| link | 个人主页，可留空 | |
+| 列     | 填什么                                                                                        | 例子                                  |
+| ------ | --------------------------------------------------------------------------------------------- | ------------------------------------- |
+| name   | 姓名                                                                                          | Zhang San                             |
+| role   | 身份，任选一个：Postdoc / PhD Student / MPhil Student / Research Assistant / Visiting Scholar | PhD Student                           |
+| status | 在读填 Current，已毕业填 Alumni                                                               | Current                               |
+| year   | 起止年份。在读成员只填起始年份加横线（如 2023–），网站会自动显示为 2023–Present               | 2023– 或 2020–2024                    |
+| email  | 邮箱，可留空                                                                                  | zhang.san@connect.polyu.hk            |
+| photo  | 照片路径，通常留空（见第三节）                                                                |                                       |
+| bio    | 一句话研究方向或去向                                                                          | Embodied carbon of modular buildings. |
+| link   | 个人主页，可留空                                                                              |                                       |
 
 3. 成员毕业后，把 status 改成 **Alumni**，在 bio 里写去向，网站会自动把这个人移到 Alumni 区。
 4. 要删除某人，直接删掉那一行。
@@ -55,16 +55,16 @@
 1. 打开「科研项目（Projects）」表格。
 2. 新增一行，按列填写：
 
-| 列 | 填什么 | 例子 |
-|---|---|---|
-| title | 项目名称 | Carbon Responsibility Allocation in Prefabricated Supply Chains |
-| role | 您的角色：PI 或 Co-I | PI |
-| funder | 资助机构 | Research Grants Council (RGC) Early Career Scheme |
-| period | 起止年份 | 2025–2027 |
-| amount | 金额，可留空 | HK$ 1,000,000 |
-| status | 进行中填 Ongoing，已结题填 Completed | Ongoing |
-| description | 一两句项目简介 | Develops a fair allocation framework for … |
-| link | 项目网址，可留空 | |
+| 列          | 填什么                               | 例子                                                            |
+| ----------- | ------------------------------------ | --------------------------------------------------------------- |
+| title       | 项目名称                             | Carbon Responsibility Allocation in Prefabricated Supply Chains |
+| role        | 您的角色：PI 或 Co-I                 | PI                                                              |
+| funder      | 资助机构                             | Research Grants Council (RGC) Early Career Scheme               |
+| period      | 起止年份                             | 2025–2027                                                       |
+| amount      | 金额，可留空                         | HK$ 1,000,000                                                   |
+| status      | 进行中填 Ongoing，已结题填 Completed | Ongoing                                                         |
+| description | 一两句项目简介                       | Develops a fair allocation framework for …                      |
+| link        | 项目网址，可留空                     |                                                                 |
 
 3. 项目结题后把 status 改成 **Completed**，网站会自动移到 Completed 区。
 

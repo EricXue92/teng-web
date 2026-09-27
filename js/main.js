@@ -4,16 +4,31 @@
   const $ = (sel, root = document) => root.querySelector(sel);
 
   const esc = (s) =>
-    String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    String(s ?? "").replace(
+      /[&<>"']/g,
+      (c) =>
+        ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        })[c],
+    );
 
   const fmtDate = (iso) => {
     const d = new Date(iso);
     if (isNaN(d)) return esc(iso);
-    return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+    return d.toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
   };
 
   const isExternal = (url) => /^https?:\/\//i.test(url);
-  const linkAttrs = (url) => (isExternal(url) ? ' target="_blank" rel="noopener"' : "");
+  const linkAttrs = (url) =>
+    isExternal(url) ? ' target="_blank" rel="noopener"' : "";
 
   /* Only allow http(s), mailto and relative paths from user-editable data;
      anything else (javascript:, data:, …) is dropped. */
@@ -37,11 +52,19 @@
   };
   const pubKind = (p) => PUB_TYPES[p.type] || "Other";
 
-  const ROLE_ORDER = ["Postdoc", "PhD Student", "MPhil Student", "Research Assistant", "Visiting Scholar"];
+  const ROLE_ORDER = [
+    "Postdoc",
+    "PhD Student",
+    "MPhil Student",
+    "Research Assistant",
+    "Visiting Scholar",
+  ];
 
   /* ---------------- navigation ---------------- */
   function initNav() {
-    const here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+    const here = (
+      location.pathname.split("/").pop() || "index.html"
+    ).toLowerCase();
     document.querySelectorAll(".site-nav a").forEach((a) => {
       const target = (a.getAttribute("href") || "").toLowerCase();
       if (target === here) a.classList.add("active");
@@ -83,7 +106,10 @@
       byYear.get(y).push(p);
     });
     container.innerHTML = [...byYear.entries()]
-      .map(([y, list]) => `<section class="year-group"><h3>${esc(y)}</h3><ul class="pub-list">${list.map(pubHTML).join("")}</ul></section>`)
+      .map(
+        ([y, list]) =>
+          `<section class="year-group"><h3>${esc(y)}</h3><ul class="pub-list">${list.map(pubHTML).join("")}</ul></section>`,
+      )
       .join("");
   }
 
@@ -97,16 +123,24 @@
       if (filters) {
         filters.innerHTML = kinds
           .map((k) => {
-            const n = k === "All" ? pubs.length : pubs.filter((p) => pubKind(p) === k).length;
+            const n =
+              k === "All"
+                ? pubs.length
+                : pubs.filter((p) => pubKind(p) === k).length;
             return `<button type="button" data-kind="${esc(k)}" class="${k === "All" ? "active" : ""}">${esc(k)} <span class="muted">${n}</span></button>`;
           })
           .join("");
         filters.addEventListener("click", (e) => {
           const btn = e.target.closest("button[data-kind]");
           if (!btn) return;
-          filters.querySelectorAll("button").forEach((b) => b.classList.toggle("active", b === btn));
+          filters
+            .querySelectorAll("button")
+            .forEach((b) => b.classList.toggle("active", b === btn));
           const k = btn.dataset.kind;
-          renderPubGroups(list, k === "All" ? pubs : pubs.filter((p) => pubKind(p) === k));
+          renderPubGroups(
+            list,
+            k === "All" ? pubs : pubs.filter((p) => pubKind(p) === k),
+          );
         });
       }
       renderPubGroups(list, pubs);
@@ -138,7 +172,9 @@
 
   function newsHTML(n) {
     const tag = n.category ? `<span class="tag">${esc(n.category)}</span>` : "";
-    const desc = n.description ? `<p class="desc">${esc(n.description)}</p>` : "";
+    const desc = n.description
+      ? `<p class="desc">${esc(n.description)}</p>`
+      : "";
     const image = safeUrl(n.image);
     const img = image ? `<img src="${esc(image)}" alt="" loading="lazy">` : "";
     return `<li class="news-item"><div class="date">${fmtDate(n.date)}</div><div>${tag}${newsTitle(n)}${desc}${img}</div></li>`;
@@ -155,15 +191,23 @@
           ? `<ul class="timeline">${items.map(newsHTML).join("")}</ul>`
           : `<p class="notice">No news yet.</p>`;
       };
-      const cats = ["All", ...new Set(news.map((n) => n.category).filter(Boolean))];
+      const cats = [
+        "All",
+        ...new Set(news.map((n) => n.category).filter(Boolean)),
+      ];
       if (filters && cats.length > 2) {
         filters.innerHTML = cats
-          .map((c) => `<button type="button" data-cat="${esc(c)}" class="${c === "All" ? "active" : ""}">${esc(c)}</button>`)
+          .map(
+            (c) =>
+              `<button type="button" data-cat="${esc(c)}" class="${c === "All" ? "active" : ""}">${esc(c)}</button>`,
+          )
           .join("");
         filters.addEventListener("click", (e) => {
           const btn = e.target.closest("button[data-cat]");
           if (!btn) return;
-          filters.querySelectorAll("button").forEach((b) => b.classList.toggle("active", b === btn));
+          filters
+            .querySelectorAll("button")
+            .forEach((b) => b.classList.toggle("active", b === btn));
           const c = btn.dataset.cat;
           render(c === "All" ? news : news.filter((n) => n.category === c));
         });
@@ -182,7 +226,10 @@
       const news = (await window.SiteData.loadNews()).slice(0, 4);
       box.innerHTML = news.length
         ? `<ul class="news-compact">${news
-            .map((n) => `<li><span class="date">${fmtDate(n.date)}</span><span>${newsTitle(n)}</span></li>`)
+            .map(
+              (n) =>
+                `<li><span class="date">${fmtDate(n.date)}</span><span>${newsTitle(n)}</span></li>`,
+            )
             .join("")}</ul>`
         : `<p class="notice">No news yet.</p>`;
     } catch (err) {
@@ -193,7 +240,12 @@
 
   /* ---------------- team ---------------- */
   function initials(name) {
-    return name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
+    return name
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((w) => w[0].toUpperCase())
+      .join("");
   }
 
   function avatarHTML(m) {
@@ -205,8 +257,12 @@
 
   function memberHTML(m) {
     const link = safeUrl(m.link);
-    const name = link ? `<a href="${esc(link)}"${linkAttrs(link)}>${esc(m.name)}</a>` : esc(m.name);
-    const year = m.year ? ` · ${esc(m.year)}` : "";
+    const name = link
+      ? `<a href="${esc(link)}"${linkAttrs(link)}>${esc(m.name)}</a>`
+      : esc(m.name);
+    // current members: an open-ended year such as "2026–" is shown as "2026–Present"
+    const span = (m.year || "").trim().replace(/\s*[-–—]$/, "–Present");
+    const year = span ? ` · ${esc(span)}` : "";
     const email = /^[^\s@]+@[^\s@]+$/.test(m.email || "")
       ? `<div class="email"><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></div>`
       : "";
@@ -226,7 +282,9 @@
 
       if (current) {
         const roles = [...new Set(cur.map((m) => m.role || "Member"))].sort(
-          (a, b) => (ROLE_ORDER.indexOf(a) + 1 || 99) - (ROLE_ORDER.indexOf(b) + 1 || 99)
+          (a, b) =>
+            (ROLE_ORDER.indexOf(a) + 1 || 99) -
+            (ROLE_ORDER.indexOf(b) + 1 || 99),
         );
         current.innerHTML = cur.length
           ? roles
@@ -242,7 +300,9 @@
           ? `<ul class="alumni-list">${old
               .map((m) => {
                 const link = safeUrl(m.link);
-                const name = link ? `<a href="${esc(link)}"${linkAttrs(link)}>${esc(m.name)}</a>` : esc(m.name);
+                const name = link
+                  ? `<a href="${esc(link)}"${linkAttrs(link)}>${esc(m.name)}</a>`
+                  : esc(m.name);
                 const meta = [m.role, m.year].filter(Boolean).join(", ");
                 return `<li><span class="name">${name}</span><span class="muted">${esc(meta)}</span>${m.bio ? `<div class="muted">${esc(m.bio)}</div>` : ""}</li>`;
               })
@@ -262,9 +322,14 @@
     const title = link
       ? `<a href="${esc(link)}"${linkAttrs(link)}>${esc(pr.title)}</a>`
       : esc(pr.title);
-    const meta = [pr.funder, pr.period, pr.amount].filter(Boolean).map(esc).join(" · ");
+    const meta = [pr.funder, pr.period, pr.amount]
+      .filter(Boolean)
+      .map(esc)
+      .join(" · ");
     const role = pr.role ? `<span class="tag">${esc(pr.role)}</span>` : "";
-    const desc = pr.description ? `<p class="desc">${esc(pr.description)}</p>` : "";
+    const desc = pr.description
+      ? `<p class="desc">${esc(pr.description)}</p>`
+      : "";
     return `<li class="card project">${role}<h3>${title}</h3><div class="meta">${meta}</div>${desc}</li>`;
   }
 
@@ -280,7 +345,10 @@
       ].filter(([, list]) => list.length);
       box.innerHTML = groups.length
         ? groups
-            .map(([name, list]) => `<section class="year-group"><h3>${name}</h3><ul class="project-list">${list.map(projectHTML).join("")}</ul></section>`)
+            .map(
+              ([name, list]) =>
+                `<section class="year-group"><h3>${name}</h3><ul class="project-list">${list.map(projectHTML).join("")}</ul></section>`,
+            )
             .join("")
         : `<p class="notice">No projects listed yet.</p>`;
     } catch (err) {
