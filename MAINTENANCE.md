@@ -58,7 +58,7 @@
 | 列          | 填什么                               | 例子                                                            |
 | ----------- | ------------------------------------ | --------------------------------------------------------------- |
 | title       | 项目名称                             | Carbon Responsibility Allocation in Prefabricated Supply Chains |
-| role        | 您的角色：PI 或 Co-I                 | PI                                                              |
+| role        | 您的角色：PI 或 Co-PI                | PI                                                              |
 | funder      | 资助机构                             | Research Grants Council (RGC) Early Career Scheme               |
 | period      | 起止年份                             | 2025–2027                                                       |
 | amount      | 金额，可留空                         | HK$ 1,000,000                                                   |
