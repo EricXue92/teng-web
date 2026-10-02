@@ -314,20 +314,6 @@ main { padding: 48px 0 72px; }
    Team
    -------------------------------------------------------------------------- */
 
-.pi-card {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 24px;
-  align-items: center;
-  margin-bottom: 48px;
-}
-.pi-card img {
-  width: 120px; height: 150px;
-  object-fit: cover; object-position: top;
-  border-radius: var(--radius);
-}
-@media (max-width: 480px) { .pi-card { grid-template-columns: 1fr; } }
-
 .member-group { margin-bottom: 36px; }
 .member-group h3 {
   font-family: var(--font-body);
