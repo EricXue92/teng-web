@@ -21,7 +21,13 @@
 
   async function loadTeam() {
     const rows = await loadCSV(cfg.TEAM_CSV_URL, "data/team.csv");
-    return rows.filter((r) => r.name);
+    // Newest start first. year is like "2025.09–", "2023–" or "2024.06–2025.02";
+    // only the start (year, optional month) counts.
+    const start = (r) => {
+      const m = /(\d{4})(?:[./](\d{1,2}))?/.exec(r.year || "");
+      return m ? Number(m[1]) * 12 + Number(m[2] || 0) : 0;
+    };
+    return rows.filter((r) => r.name).sort((a, b) => start(b) - start(a));
   }
 
   async function loadProjects() {
