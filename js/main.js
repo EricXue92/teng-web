@@ -297,16 +297,7 @@
       }
       if (alumni) {
         alumni.innerHTML = old.length
-          ? `<ul class="alumni-list">${old
-              .map((m) => {
-                const link = safeUrl(m.link);
-                const name = link
-                  ? `<a href="${esc(link)}"${linkAttrs(link)}>${esc(m.name)}</a>`
-                  : esc(m.name);
-                const meta = [m.role, m.year].filter(Boolean).join(", ");
-                return `<li><span class="name">${name}</span><span class="muted">${esc(meta)}</span>${m.bio ? `<div class="muted">${esc(m.bio)}</div>` : ""}</li>`;
-              })
-              .join("")}</ul>`
+          ? `<div class="members">${old.map(memberHTML).join("")}</div>`
           : `<p class="notice">No alumni listed yet.</p>`;
       }
     } catch (err) {

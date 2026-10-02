@@ -365,12 +365,6 @@ main { padding: 48px 0 72px; }
 .member .bio { font-size: 0.92rem; margin: 4px 0 0; }
 .member .email { font-size: 0.85rem; }
 
-.alumni-list { list-style: none; padding: 0; margin: 0; }
-.alumni-list li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
-.alumni-list li:last-child { border-bottom: 0; }
-.alumni-list .name { font-weight: 500; }
-.alumni-list .muted { margin-left: 6px; }
-
 /* --------------------------------------------------------------------------
    News timeline
    -------------------------------------------------------------------------- */
