@@ -27,13 +27,13 @@ Three content tiers, each with a different owner and source:
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------- |
 | News, Team                                                        | Two Google Sheets, shared "anyone with link", read as `.../export?format=csv&gid=…`              | `js/data.js` → `loadNews` / `loadTeam` |
 | Publications                                                      | ORCID public API, fetched live in the browser (CORS `*`); falls back to `data/publications.json` | `js/data.js` → `loadPublications`      |
-| Bio, CV details (`about.html`), research themes, courses, contact | Hard-coded in the HTML pages                                                                     | none                                   |
+| Bio, CV highlights, research themes, courses, contact             | Hard-coded in the HTML pages                                                                     | none                                   |
 
 - `js/config.js` is the only configuration file: the Sheet CSV URLs and the ORCID id. Empty Sheet URLs make the loaders read `data/news.csv` / `data/team.csv` / `data/projects.csv` instead, which double as the Sheet column templates. Keep the CSV headers and the Sheet headers identical.
 - `js/csv.js` is a hand-written RFC-4180 parser; `js/data.js` returns plain objects; `js/main.js` does all rendering and only touches containers that exist on the current page (`#news-list`, `#team-current`, `#projects-list`, `#pub-list`, `#home-news`, `#home-pubs`, …). Adding a data-driven block means adding a container id and an `init*` function in `main.js`.
 - `simplifyORCID` in `js/data.js` and `simplify` in `scripts/fetch_orcid.py` must stay in sync: they produce the same publication object shape.
 - `data/publications-extra.json` holds works from the owner's CV that ORCID does not list (same object shape). `loadPublications` appends them and drops any entry whose DOI or title ORCID already has, so entries can stay after ORCID catches up.
-- The header and footer are duplicated verbatim in all eight HTML pages. A nav or footer change must be applied to every page.
+- The header and footer are duplicated verbatim in all seven HTML pages. A nav or footer change must be applied to every page.
 - Colours, fonts and dark-mode values are CSS variables at the top of `css/style.css`.
 
 ## Docs for humans
