@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Personal/lab website for Dr. Yue TENG (Assistant Professor, Dept. of Building and Real Estate, PolyU). Plain HTML/CSS/JS, English only, no build step, no dependencies. Deployed with GitHub Pages from the `main` branch root (https://ericxue92.github.io/teng-web/); every push to `main` goes live within about a minute. Relative asset paths must stay relative because the site lives under a sub-path.
+Personal/lab website for Dr. Yue TENG (Assistant Professor, Dept. of Building and Real Estate, PolyU). Plain HTML/CSS/JS, English only, no build step, no dependencies. Deployed with GitHub Pages from the `main` branch root of two repositories: `polyucmi/polyucmi.github.io` (primary, https://polyucmi.github.io/) and the legacy `EricXue92/teng-web` (https://ericxue92.github.io/teng-web/, kept alive at the owner's request). `origin` fetches from the primary and has both as push URLs, so one `git push` updates both sites; every push to `main` goes live within about a minute. Relative asset paths must stay relative because the legacy site lives under a sub-path.
 
 **Hard constraint:** the site owner is non-technical. Anything that changes often (news, team, projects) must stay editable through Google Sheets. Never move that content into files or ask the owner to edit code.
 
