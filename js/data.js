@@ -76,12 +76,19 @@
       console.warn("ORCID unavailable, using local snapshot:", err.message);
       pubs = JSON.parse(await fetchText("data/publications.json"));
     }
+    // Works from the CV that ORCID does not list. An entry here is dropped
+    // automatically once ORCID has the same work (matched by DOI or title).
+    try {
+      pubs = pubs.concat(JSON.parse(await fetchText("data/publications-extra.json")));
+    } catch (err) {
+      console.warn("No supplementary publication list:", err.message);
+    }
     const seen = new Set();
     return pubs
       .filter((p) => {
-        const key = p.doi || p.title.toLowerCase().replace(/\W+/g, "");
-        if (seen.has(key)) return false;
-        seen.add(key);
+        const keys = [(p.doi || "").toLowerCase(), p.title.toLowerCase().replace(/\W+/g, "")].filter(Boolean);
+        if (keys.some((k) => seen.has(k))) return false;
+        keys.forEach((k) => seen.add(k));
         return true;
       })
       .sort((a, b) => (b.year || 0) - (a.year || 0) || a.title.localeCompare(b.title));

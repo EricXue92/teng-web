@@ -57,16 +57,16 @@
 1. 打开「科研项目（Projects）」表格。
 2. 新增一行，按列填写：
 
-| 列          | 填什么                               | 例子                                                            |
-| ----------- | ------------------------------------ | --------------------------------------------------------------- |
-| title       | 项目名称                             | Carbon Responsibility Allocation in Prefabricated Supply Chains |
-| role        | 您的角色：PI 或 Co-PI                | PI                                                              |
-| funder      | 资助机构                             | Research Grants Council (RGC) Early Career Scheme               |
-| period      | 起止年份                             | 2025–2027                                                       |
-| amount      | 金额，可留空                         | HK$ 1,000,000                                                   |
-| status      | 进行中填 Ongoing，已结题填 Completed | Ongoing                                                         |
-| description | 一两句项目简介                       | Develops a fair allocation framework for …                      |
-| link        | 项目网址，可留空                     |                                                                 |
+| 列          | 填什么                                                             | 例子                                                            |
+| ----------- | ------------------------------------------------------------------ | --------------------------------------------------------------- |
+| title       | 项目名称                                                           | Carbon Responsibility Allocation in Prefabricated Supply Chains |
+| role        | 您的角色，如 PI / Co-PI / Co-I / Lead Researcher / Key Participant | PI                                                              |
+| funder      | 资助机构                                                           | Research Grants Council (RGC) Early Career Scheme               |
+| period      | 起止年份                                                           | 2025–2027                                                       |
+| amount      | 金额，可留空                                                       | HK$ 1,000,000                                                   |
+| status      | 进行中填 Ongoing，已结题填 Completed                               | Ongoing                                                         |
+| description | 一两句项目简介                                                     | Develops a fair allocation framework for …                      |
+| link        | 项目网址，可留空                                                   |                                                                 |
 
 3. 项目结题后把 status 改成 **Completed**，网站会自动移到 Completed 区。
 
@@ -92,6 +92,10 @@
 Publications 页面直接读取您的 ORCID 记录，不需要维护。
 Scopus 会自动把新论文同步到 ORCID；如果某篇没有出现，登录 https://orcid.org 手动添加即可。
 
+ORCID 里暂时没有的论文和专利（2026 年 10 月按简历补充了 32 条）由管理员放在网站的补充列表里，同样会显示在 Publications 页面。
+以后某篇论文进入 ORCID，网站会自动只保留一条，不会重复。需要往补充列表里加内容时告诉管理员。
+
 ## 六、其他内容
 
 简介、研究方向、课程、联系方式等文字变动很少，需要修改时告诉管理员。
+About 页面上的教育经历、工作经历、获奖、学术服务和会员资格也属于这一类：有新的获奖或任职时，把内容发给管理员更新。
