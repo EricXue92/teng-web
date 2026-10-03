@@ -34,16 +34,16 @@
 1. 打开「团队成员（Team）」表格。
 2. 新增一行，按列填写：
 
-| 列     | 填什么                                                                                              | 例子                                  |
-| ------ | --------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| name   | 姓名                                                                                                | Zhang San                             |
-| role   | 身份，任选一个：Postdoc / PhD Student / MPhil Student / Research Assistant / Visiting Scholar       | PhD Student                           |
-| status | 在读填 Current，已毕业填 Alumni                                                                     | Current                               |
-| year   | 起止时间，可以写到月份。在读成员只填起始时间加横线（如 2023.09–），网站会自动显示为 2023.09–Present | 2023.09– 或 2020.09–2024.06           |
-| email  | 邮箱，可留空                                                                                        | zhang.san@connect.polyu.hk            |
-| photo  | 照片路径，通常留空（见第四节）                                                                      |                                       |
-| bio    | 一句话研究方向或去向                                                                                | Embodied carbon of modular buildings. |
-| link   | 个人主页，可留空                                                                                    |                                       |
+| 列     | 填什么                                                                                              | 例子                                 |
+| ------ | --------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| name   | 姓名                                                                                                | Zhang San                            |
+| role   | 身份，任选一个：Postdoc / PhD Student / MPhil Student / Research Assistant / Visiting Scholar       | PhD Student                          |
+| status | 在读填 Current，已毕业填 Alumni                                                                     | Current                              |
+| year   | 起止时间，可以写到月份。在读成员只填起始时间加横线（如 2023.09–），网站会自动显示为 2023.09–Present | 2023.09– 或 2020.09–2024.06          |
+| email  | 邮箱，可留空                                                                                        | zhang.san@connect.polyu.hk           |
+| photo  | 照片路径，通常留空（见第四节）                                                                      |                                      |
+| bio    | 一句话研究方向或去向（结尾不加句号）                                                        | Embodied carbon of modular buildings |
+| link   | 个人主页，可留空                                                                                    |                                      |
 
 3. 成员毕业后，把 status 改成 **Alumni**，在 bio 里写去向，网站会自动把这个人移到 Alumni 区。
 4. 要删除某人，直接删掉那一行。
