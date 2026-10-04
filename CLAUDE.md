@@ -13,6 +13,7 @@ Personal/lab website for Dr. Yue TENG (Assistant Professor, Dept. of Building an
 ```bash
 python3 -m http.server 8000        # local preview at http://localhost:8000
 python3 scripts/fetch_orcid.py     # refresh data/publications.json (ORCID fallback snapshot)
+python3 scripts/fetch_citations.py # refresh data/citations.json (authors/volume/pages from Crossref)
 ```
 
 Opening `index.html` via `file://` does not work: the pages use `fetch()`. Always preview through an HTTP server.
@@ -33,6 +34,7 @@ Three content tiers, each with a different owner and source:
 - `js/csv.js` is a hand-written RFC-4180 parser; `js/data.js` returns plain objects; `js/main.js` does all rendering and only touches containers that exist on the current page (`#news-list`, `#team-current`, `#projects-list`, `#pub-list`, …). Adding a data-driven block means adding a container id and an `init*` function in `main.js`.
 - `simplifyORCID` in `js/data.js` and `simplify` in `scripts/fetch_orcid.py` must stay in sync: they produce the same publication object shape.
 - `data/publications-extra.json` holds works from the owner's CV that ORCID does not list (same object shape). `loadPublications` appends them and drops any entry whose DOI or title ORCID already has, so entries can stay after ORCID catches up.
+- `data/citations.json` holds what ORCID lacks for a journal-style reference (authors, volume, issue, pages), keyed by lower-case DOI, or by normalised title for works without one. `loadPublications` merges it in; a DOI missing from the cache is looked up on Crossref in the browser, so new ORCID works still get full references. `simplifyCrossref` in `js/data.js` and `simplify` in `scripts/fetch_citations.py` must stay in sync. The no-DOI entries and the `"corresponding": true` author marks (rendered as `*`) were entered by hand from the owner's CV; the script preserves both.
 - The header and footer are duplicated verbatim in all seven HTML pages. A nav or footer change must be applied to every page.
 - Colours, fonts and dark-mode values are CSS variables at the top of `css/style.css`.
 

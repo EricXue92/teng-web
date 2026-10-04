@@ -84,14 +84,54 @@
   }
 
   /* ---------------- publications ---------------- */
+  /* Journal-style reference, as in Dr. Teng's CV:
+     Li, X., Teng, Y.*, & Pan, W. (2024). Title. Journal, 165(2), 105556. */
+  const givenInitials = (given) =>
+    given
+      .split(/[\s.]+/)
+      .filter(Boolean)
+      .map((w) =>
+        w
+          .split("-")
+          .filter(Boolean)
+          .map((x) => `${x[0].toUpperCase()}.`)
+          .join("-"),
+      )
+      .join(" ");
+
+  function authorsHTML(authors) {
+    const names = (authors || []).map((a) => {
+      const name = esc(`${a.family}, ${givenInitials(a.given)}`.replace(/, $/, ""));
+      const star = a.corresponding ? "*" : "";
+      const owner = a.family === "Teng" && /^y/i.test(a.given);
+      return owner ? `<strong>${name}${star}</strong>` : name + star;
+    });
+    if (names.length < 2) return names.join("");
+    return `${names.slice(0, -1).join(", ")}, &amp; ${names[names.length - 1]}`;
+  }
+
   function pubHTML(p) {
+    const authors = authorsHTML(p.authors);
+    const year = p.year ? `(${p.year}).` : "";
     const url = safeUrl(p.url);
+    const stop = /[.?!]$/.test(p.title) ? "" : ".";
     const title = url
-      ? `<a class="title" href="${esc(url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
-      : `<span class="title">${esc(p.title)}</span>`;
-    const journal = p.journal ? `<em>${esc(p.journal)}</em>` : "";
-    const year = p.year ? `${journal ? ", " : ""}${p.year}` : "";
-    return `<li class="pub">${title}<span class="meta">${journal}${year}<span class="kind">${pubKind(p)}</span></span></li>`;
+      ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(p.title)}</a>${stop}`
+      : esc(p.title) + stop;
+    const dash = (s) => esc(String(s).replace(/\s*-+\s*/g, "–"));
+    const patent = p.type === "patent";
+    let source = p.journal ? (patent ? esc(p.journal) : `<em>${esc(p.journal)}</em>`) : "";
+    if (source) {
+      if (p.volume) {
+        source += `, <em>${esc(p.volume)}</em>${p.issue ? `(${dash(p.issue)})` : ""}`;
+      }
+      const pages = p.pages || p.article;
+      if (pages) source += `, ${p.volume || !/\d-+\d/.test(pages) ? "" : "pp. "}${dash(pages)}`;
+      source += ".";
+    }
+    // Without authors the title leads: "Title. (2024). Journal."
+    const head = authors ? [authors, year, title] : [title, year];
+    return `<li class="pub">${[...head, source].filter(Boolean).join(" ")}</li>`;
   }
 
   function renderPubGroups(container, pubs) {

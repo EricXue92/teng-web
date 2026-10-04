@@ -78,6 +78,54 @@
     };
   }
 
+  // A work is identified by its DOI and by its normalised title.
+  const pubKeys = (p) =>
+    [(p.doi || "").toLowerCase(), p.title.toLowerCase().replace(/\W+/g, "")].filter(Boolean);
+
+  // Keep in sync with simplify in scripts/fetch_citations.py.
+  function simplifyCrossref(work) {
+    const authors = (work.author || [])
+      .map((a) => ({ family: a.family || a.name || "", given: a.given || "" }))
+      .filter((a) => a.family);
+    authors.forEach((a) => {
+      // Crossref has Dr. Teng's name reversed on one record.
+      if (a.family === "Yue" && a.given === "Teng") Object.assign(a, { family: "Teng", given: "Yue" });
+    });
+    return {
+      authors,
+      volume: work.volume || null,
+      issue: work.issue || null,
+      pages: work.page || null,
+      article: work["article-number"] || null,
+    };
+  }
+
+  /* Authors, volume, issue and pages, which ORCID does not give. Read from the
+     data/citations.json cache; a DOI missing there (a work newly added on
+     ORCID) is looked up on Crossref. Never fails: a work without details is
+     simply shown with what ORCID has. */
+  async function loadCitations(pubs) {
+    let cites = {};
+    try {
+      cites = JSON.parse(await fetchText("data/citations.json"));
+    } catch (err) {
+      console.warn("No citation cache:", err.message);
+    }
+    const missing = pubs.filter((p) => p.doi && !pubKeys(p).some((k) => cites[k]));
+    await Promise.all(
+      missing.map(async (p) => {
+        try {
+          const res = await fetch(`https://api.crossref.org/works/${encodeURIComponent(p.doi)}`);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          cites[p.doi.toLowerCase()] = simplifyCrossref((await res.json()).message);
+        } catch (err) {
+          console.warn(`No Crossref record for ${p.doi}:`, err.message);
+        }
+      }),
+    );
+    return cites;
+  }
+
   async function loadPublications() {
     let pubs;
     try {
@@ -104,16 +152,15 @@
       console.warn("No supplementary publication list:", err.message);
     }
     const seen = new Set();
+    pubs = pubs.filter((p) => {
+      const keys = pubKeys(p);
+      if (keys.some((k) => seen.has(k))) return false;
+      keys.forEach((k) => seen.add(k));
+      return true;
+    });
+    const cites = await loadCitations(pubs);
     return pubs
-      .filter((p) => {
-        const keys = [
-          (p.doi || "").toLowerCase(),
-          p.title.toLowerCase().replace(/\W+/g, ""),
-        ].filter(Boolean);
-        if (keys.some((k) => seen.has(k))) return false;
-        keys.forEach((k) => seen.add(k));
-        return true;
-      })
+      .map((p) => ({ ...p, ...pubKeys(p).map((k) => cites[k]).find(Boolean) }))
       .sort(
         (a, b) =>
           (b.year || 0) - (a.year || 0) || a.title.localeCompare(b.title),

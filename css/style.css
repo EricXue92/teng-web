@@ -271,20 +271,10 @@ main { padding: 48px 0 72px; }
 }
 
 .pub-list { list-style: none; padding: 0; margin: 0; }
-.pub { padding: 10px 0 12px; }
-.pub + .pub { border-top: 1px dashed var(--line); }
-.pub .title { font-weight: 500; display: block; }
-.pub .meta { color: var(--muted); font-size: 0.9rem; }
-.pub .meta em { font-style: italic; }
-.pub .kind {
-  font-size: 0.72rem;
-  color: var(--muted);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 1px 6px;
-  margin-left: 6px;
-  vertical-align: middle;
-}
+/* Journal-style references with a hanging indent. */
+.pub { padding: 7px 0 7px 1.6em; text-indent: -1.6em; overflow-wrap: anywhere; }
+.pub em { font-style: italic; }
+.pub strong { font-weight: 600; }
 
 /* --------------------------------------------------------------------------
    Projects

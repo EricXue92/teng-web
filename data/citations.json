@@ -1,0 +1,1470 @@
+{
+ "10.3390/buildings16081587": {
+  "authors": [
+   {
+    "family": "Zhao",
+    "given": "Yiyu"
+   },
+   {
+    "family": "Zhang",
+    "given": "Yaning"
+   },
+   {
+    "family": "Wu",
+    "given": "Xiaohan"
+   },
+   {
+    "family": "Wen",
+    "given": "Xinping"
+   },
+   {
+    "family": "Chen",
+    "given": "Chen"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue",
+    "corresponding": true
+   },
+   {
+    "family": "Lau",
+    "given": "Man Piu Ben"
+   }
+  ],
+  "volume": "16",
+  "issue": "8",
+  "pages": "1587",
+  "article": null
+ },
+ "10.1016/j.cie.2024.110831": {
+  "authors": [
+   {
+    "family": "Zhang",
+    "given": "Yaning"
+   },
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Q.P."
+   },
+   {
+    "family": "Bai",
+    "given": "Sijun"
+   }
+  ],
+  "volume": "200",
+  "issue": null,
+  "pages": "110831",
+  "article": "110831"
+ },
+ "10.1016/j.jobe.2024.111736": {
+  "authors": [
+   {
+    "family": "Wu",
+    "given": "Xiaohan"
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Qiping"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue",
+    "corresponding": true
+   },
+   {
+    "family": "Jiang",
+    "given": "Rui"
+   }
+  ],
+  "volume": "100",
+  "issue": null,
+  "pages": "111736",
+  "article": "111736"
+ },
+ "10.1016/j.autcon.2024.105595": {
+  "authors": [
+   {
+    "family": "Zhang",
+    "given": "Yaning"
+   },
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Bai",
+    "given": "Sijun"
+   },
+   {
+    "family": "Chen",
+    "given": "Zhi"
+   }
+  ],
+  "volume": "165",
+  "issue": null,
+  "pages": "105595",
+  "article": "105595"
+ },
+ "10.1016/j.buildenv.2024.112056": {
+  "authors": [
+   {
+    "family": "Wen",
+    "given": "Xinping"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue",
+    "corresponding": true
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Qiping"
+   }
+  ],
+  "volume": "266",
+  "issue": null,
+  "pages": "112056",
+  "article": "112056"
+ },
+ "10.1061/jmenea.meeng-5828": {
+  "authors": [
+   {
+    "family": "Zhang",
+    "given": "Yang"
+   },
+   {
+    "family": "Pan",
+    "given": "Wei"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Chen",
+    "given": "Siwei"
+   }
+  ],
+  "volume": "40",
+  "issue": "4",
+  "pages": null,
+  "article": "04024026"
+ },
+ "10.1016/j.eswa.2023.122092": {
+  "authors": [
+   {
+    "family": "Zhang",
+    "given": "Yaning"
+   },
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Qiping"
+   },
+   {
+    "family": "Bai",
+    "given": "Sijun"
+   }
+  ],
+  "volume": "238",
+  "issue": null,
+  "pages": "122092",
+  "article": "122092"
+ },
+ "10.1016/j.buildenv.2023.110648": {
+  "authors": [
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Li",
+    "given": "Clyde Zhengdao"
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Q.P."
+   },
+   {
+    "family": "Yang",
+    "given": "Qianwen"
+   },
+   {
+    "family": "Peng",
+    "given": "Zhe"
+   }
+  ],
+  "volume": "243",
+  "issue": null,
+  "pages": "110648",
+  "article": "110648"
+ },
+ "10.1016/j.buildenv.2022.109260": {
+  "authors": [
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Xu",
+    "given": "Jiayi"
+   },
+   {
+    "family": "Pan",
+    "given": "Wei"
+   },
+   {
+    "family": "Zhang",
+    "given": "Yang"
+   }
+  ],
+  "volume": "221",
+  "issue": null,
+  "pages": "109260",
+  "article": "109260"
+ },
+ "10.1016/j.eiar.2021.106633": {
+  "authors": [
+   {
+    "family": "Wang",
+    "given": "Jiajia"
+   },
+   {
+    "family": "Huang",
+    "given": "Yuanyuan"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Yu",
+    "given": "Bo"
+   },
+   {
+    "family": "Wang",
+    "given": "Jiayuan"
+   },
+   {
+    "family": "Zhang",
+    "given": "Hui"
+   },
+   {
+    "family": "Duan",
+    "given": "Huabo",
+    "corresponding": true
+   }
+  ],
+  "volume": "90",
+  "issue": null,
+  "pages": "106633",
+  "article": "106633"
+ },
+ "10.1016/j.scitotenv.2021.149158": {
+  "authors": [
+   {
+    "family": "Wang",
+    "given": "Jiajia"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Chen",
+    "given": "Zhe"
+   },
+   {
+    "family": "Bai",
+    "given": "Jing"
+   },
+   {
+    "family": "Niu",
+    "given": "Yongning"
+   },
+   {
+    "family": "Duan",
+    "given": "Huabo",
+    "corresponding": true
+   }
+  ],
+  "volume": "798",
+  "issue": null,
+  "pages": "149158",
+  "article": "149158"
+ },
+ "10.1016/j.rser.2021.110840": {
+  "authors": [
+   {
+    "family": "Pan",
+    "given": "W."
+   },
+   {
+    "family": "Teng",
+    "given": "Y.",
+    "corresponding": true
+   }
+  ],
+  "volume": "141",
+  "issue": null,
+  "pages": "110840",
+  "article": "110840"
+ },
+ "10.1016/j.buildenv.2020.106951": {
+  "authors": [
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Pan",
+    "given": "Wei"
+   }
+  ],
+  "volume": "180",
+  "issue": null,
+  "pages": "106951",
+  "article": "106951"
+ },
+ "10.1080/15623599.2017.1358075": {
+  "authors": [
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Wu",
+    "given": "Peng"
+   },
+   {
+    "family": "Wang",
+    "given": "Xiangyu"
+   }
+  ],
+  "volume": "19",
+  "issue": "1",
+  "pages": "32-45",
+  "article": null
+ },
+ "10.1016/j.jclepro.2019.117791": {
+  "authors": [
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Pan",
+    "given": "Wei"
+   }
+  ],
+  "volume": "238",
+  "issue": null,
+  "pages": "117791",
+  "article": "117791"
+ },
+ "10.3390/su11051387": {
+  "authors": [
+   {
+    "family": "Gong",
+    "given": "Pan"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue",
+    "corresponding": true
+   },
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Luo",
+    "given": "Lizi"
+   }
+  ],
+  "volume": "11",
+  "issue": "5",
+  "pages": "1387",
+  "article": null
+ },
+ "10.1016/j.autcon.2018.12.024": {
+  "authors": [
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Qiping"
+   },
+   {
+    "family": "Wu",
+    "given": "Peng"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   }
+  ],
+  "volume": "100",
+  "issue": null,
+  "pages": "46-60",
+  "article": null
+ },
+ "10.1680/jensu.17.00063": {
+  "authors": [
+   {
+    "family": "Pan",
+    "given": "Wei"
+   },
+   {
+    "family": "Li",
+    "given": "Kaijian"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   }
+  ],
+  "volume": "172",
+  "issue": "1",
+  "pages": "3-8",
+  "article": null
+ },
+ "10.1016/j.rser.2018.03.057": {
+  "authors": [
+   {
+    "family": "Pan",
+    "given": "Wei"
+   },
+   {
+    "family": "Li",
+    "given": "Kaijian"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   }
+  ],
+  "volume": "90",
+  "issue": null,
+  "pages": "379-390",
+  "article": null
+ },
+ "10.1016/j.buildenv.2018.01.026": {
+  "authors": [
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Li",
+    "given": "Kaijian"
+   },
+   {
+    "family": "Pan",
+    "given": "Wei"
+   },
+   {
+    "family": "Ng",
+    "given": "Thomas"
+   }
+  ],
+  "volume": "132",
+  "issue": null,
+  "pages": "125-136",
+  "article": null
+ },
+ "10.1061/(asce)me.1943-5479.0000577": {
+  "authors": [
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Qiping"
+   },
+   {
+    "family": "Wu",
+    "given": "Peng"
+   },
+   {
+    "family": "Fan",
+    "given": "Hongqin"
+   },
+   {
+    "family": "Wu",
+    "given": "Hengqin"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   }
+  ],
+  "volume": "34",
+  "issue": "2",
+  "pages": null,
+  "article": "04017053"
+ },
+ "10.1016/j.autcon.2017.09.011": {
+  "authors": [
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Wu",
+    "given": "Peng"
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Qiping"
+   },
+   {
+    "family": "Wang",
+    "given": "Xiangyu"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   }
+  ],
+  "volume": "84",
+  "issue": null,
+  "pages": "195-206",
+  "article": null
+ },
+ "10.1016/j.jclepro.2017.03.094": {
+  "authors": [
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Mao",
+    "given": "Chao"
+   },
+   {
+    "family": "Liu",
+    "given": "Guiwen"
+   },
+   {
+    "family": "Wang",
+    "given": "Xiangyu"
+   }
+  ],
+  "volume": "152",
+  "issue": null,
+  "pages": "387-398",
+  "article": null
+ },
+ "10.1016/j.scs.2026.107861": {
+  "authors": [
+   {
+    "family": "Zhao",
+    "given": "Yongheng"
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Qiping"
+   },
+   {
+    "family": "Zhou",
+    "given": "Shenghua"
+   },
+   {
+    "family": "Li",
+    "given": "Dezhi",
+    "corresponding": true
+   },
+   {
+    "family": "Teng",
+    "given": "Yue",
+    "corresponding": true
+   },
+   {
+    "family": "Wang",
+    "given": "Wentao"
+   }
+  ],
+  "volume": "150",
+  "issue": null,
+  "pages": "107861",
+  "article": "107861"
+ },
+ "10.1016/j.scs.2026.107470": {
+  "authors": [
+   {
+    "family": "Wen",
+    "given": "Xinping"
+   },
+   {
+    "family": "Pan",
+    "given": "Wei"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue",
+    "corresponding": true
+   },
+   {
+    "family": "Chan",
+    "given": "Daniel W.M."
+   },
+   {
+    "family": "Xu",
+    "given": "Jinying"
+   }
+  ],
+  "volume": "145",
+  "issue": null,
+  "pages": "107470",
+  "article": "107470"
+ },
+ "10.1016/j.eiar.2025.108161": {
+  "authors": [
+   {
+    "family": "Ding",
+    "given": "Zhikun"
+   },
+   {
+    "family": "Wen",
+    "given": "Xinping"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Wu",
+    "given": "Huanyu"
+   }
+  ],
+  "volume": "117",
+  "issue": null,
+  "pages": "108161",
+  "article": "108161"
+ },
+ "10.1016/j.scs.2025.107034": {
+  "authors": [
+   {
+    "family": "Wang",
+    "given": "Juan"
+   },
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Li",
+    "given": "Xiaodong"
+   },
+   {
+    "family": "Zhu",
+    "given": "Wentao"
+   }
+  ],
+  "volume": "136",
+  "issue": null,
+  "pages": "107034",
+  "article": "107034"
+ },
+ "10.1016/j.buildenv.2025.113600": {
+  "authors": [
+   {
+    "family": "Wu",
+    "given": "Siyu"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue",
+    "corresponding": true
+   },
+   {
+    "family": "Pan",
+    "given": "Wei"
+   },
+   {
+    "family": "Zhao",
+    "given": "Xianzhong"
+   }
+  ],
+  "volume": "285",
+  "issue": null,
+  "pages": "113600",
+  "article": "113600"
+ },
+ "10.1061/jcemd4.coeng-15856": {
+  "authors": [
+   {
+    "family": "Liu",
+    "given": "Zisheng"
+   },
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Gao",
+    "given": "Zezhou"
+   },
+   {
+    "family": "Zhang",
+    "given": "Yaning"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Wu",
+    "given": "Chengke"
+   }
+  ],
+  "volume": "151",
+  "issue": "4",
+  "pages": null,
+  "article": "04025019"
+ },
+ "10.1016/j.rser.2024.115237": {
+  "authors": [
+   {
+    "family": "Zhao",
+    "given": "Yiyu"
+   },
+   {
+    "family": "Li",
+    "given": "Clyde Zhengdao"
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Qiping",
+    "corresponding": true
+   },
+   {
+    "family": "Teng",
+    "given": "Yue",
+    "corresponding": true
+   },
+   {
+    "family": "Wu",
+    "given": "Hengqin"
+   },
+   {
+    "family": "Liu",
+    "given": "Rongsheng"
+   }
+  ],
+  "volume": "211",
+  "issue": null,
+  "pages": "115237",
+  "article": "115237"
+ },
+ "10.1016/j.buildenv.2023.110492": {
+  "authors": [
+   {
+    "family": "Xu",
+    "given": "Jiayi"
+   },
+   {
+    "family": "Zhang",
+    "given": "Qiqi"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Pan",
+    "given": "Wei"
+   }
+  ],
+  "volume": "242",
+  "issue": null,
+  "pages": "110492",
+  "article": "110492"
+ },
+ "10.1016/j.resconrec.2022.106653": {
+  "authors": [
+   {
+    "family": "Chen",
+    "given": "Siwei"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Zhang",
+    "given": "Yang"
+   },
+   {
+    "family": "Leung",
+    "given": "Christopher K.Y."
+   },
+   {
+    "family": "Pan",
+    "given": "Wei"
+   }
+  ],
+  "volume": "188",
+  "issue": null,
+  "pages": "106653",
+  "article": "106653"
+ },
+ "10.1016/j.jclepro.2022.133894": {
+  "authors": [
+   {
+    "family": "Xu",
+    "given": "Jiayi"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Pan",
+    "given": "Wei"
+   },
+   {
+    "family": "Zhang",
+    "given": "Yang"
+   }
+  ],
+  "volume": "374",
+  "issue": null,
+  "pages": "133894",
+  "article": "133894"
+ },
+ "10.15302/j-fem-2014056": {
+  "authors": [
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Xu",
+    "given": "Bo"
+   },
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Li",
+    "given": "Ling"
+   },
+   {
+    "family": "Fang",
+    "given": "Xia-zhi"
+   }
+  ],
+  "volume": "1",
+  "issue": "4",
+  "pages": "372",
+  "article": null
+ },
+ "10.7771/3067-4883.1443": {
+  "authors": [
+   {
+    "family": "Wen",
+    "given": "Xinping"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue",
+    "corresponding": true
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Qiping"
+   }
+  ],
+  "volume": "1",
+  "issue": "1",
+  "pages": null,
+  "article": null
+ },
+ "10.1061/9780784485910.038": {
+  "authors": [
+   {
+    "family": "Wu",
+    "given": "Xiaohan"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue",
+    "corresponding": true
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Qiping"
+   },
+   {
+    "family": "Wen",
+    "given": "Xinping"
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": "393-403",
+  "article": null
+ },
+ "10.1061/9780784485910.159": {
+  "authors": [
+   {
+    "family": "Wen",
+    "given": "Xinping"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue",
+    "corresponding": true
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Qiping"
+   },
+   {
+    "family": "Wu",
+    "given": "Xiaohan"
+   },
+   {
+    "family": "Zhang",
+    "given": "Zhongjun"
+   },
+   {
+    "family": "Wang",
+    "given": "Qiong"
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": "1665-1680",
+  "article": null
+ },
+ "10.1061/9780784485910.053": {
+  "authors": [
+   {
+    "family": "Zhang",
+    "given": "Yaning"
+   },
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue",
+    "corresponding": true
+   },
+   {
+    "family": "Shen",
+    "given": "Geoffrey Q. P."
+   },
+   {
+    "family": "Bai",
+    "given": "Sijun"
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": "562-571",
+  "article": null
+ },
+ "10.1007/978-981-97-1949-5_51": {
+  "authors": [
+   {
+    "family": "Zhang",
+    "given": "Yaning"
+   },
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Shen",
+    "given": "Qiping"
+   },
+   {
+    "family": "Bai",
+    "given": "Sijun"
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": "733-756",
+  "article": null
+ },
+ "10.1007/978-981-99-3626-7_19": {
+  "authors": [
+   {
+    "family": "Chen",
+    "given": "Yang"
+   },
+   {
+    "family": "Lai",
+    "given": "Tianxin"
+   },
+   {
+    "family": "Hong",
+    "given": "Jingke"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": "235-252",
+  "article": null
+ },
+ "10.1007/978-981-99-3626-7_105": {
+  "authors": [
+   {
+    "family": "Chen",
+    "given": "Siwei"
+   },
+   {
+    "family": "Zhang",
+    "given": "Yang"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Poon",
+    "given": "Chi Sun"
+   },
+   {
+    "family": "Pan",
+    "given": "Wei"
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": "1357-1369",
+  "article": null
+ },
+ "10.1088/1755-1315/1101/2/022014": {
+  "authors": [
+   {
+    "family": "Pan",
+    "given": "Wei"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue",
+    "corresponding": true
+   },
+   {
+    "family": "Bai",
+    "given": "Yefei"
+   },
+   {
+    "family": "Yu",
+    "given": "Cong"
+   },
+   {
+    "family": "Xu",
+    "given": "Jiayi"
+   }
+  ],
+  "volume": "1101",
+  "issue": "2",
+  "pages": "022014",
+  "article": null
+ },
+ "10.1088/1755-1315/1101/2/022031": {
+  "authors": [
+   {
+    "family": "Xu",
+    "given": "Jiayi"
+   },
+   {
+    "family": "Pan",
+    "given": "Wei"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Zhang",
+    "given": "Yang"
+   },
+   {
+    "family": "Zhang",
+    "given": "Qiqi"
+   }
+  ],
+  "volume": "1101",
+  "issue": "2",
+  "pages": "022031",
+  "article": null
+ },
+ "10.1088/1755-1315/1101/2/022023": {
+  "authors": [
+   {
+    "family": "Zhang",
+    "given": "Y"
+   },
+   {
+    "family": "Pan",
+    "given": "W"
+   },
+   {
+    "family": "Teng",
+    "given": "Y"
+   }
+  ],
+  "volume": "1101",
+  "issue": "2",
+  "pages": "022023",
+  "article": null
+ },
+ "10.1007/978-981-10-0855-9_79": {
+  "authors": [
+   {
+    "family": "Wang",
+    "given": "Jianpu"
+   },
+   {
+    "family": "Li",
+    "given": "Xiao"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   },
+   {
+    "family": "Li",
+    "given": "Shirong"
+   },
+   {
+    "family": "Xu",
+    "given": "Bo"
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": "895-908",
+  "article": null
+ },
+ "10.29173/mocs145": {
+  "authors": [
+   {
+    "family": "Liu",
+    "given": "Gui-wen"
+   },
+   {
+    "family": "Li",
+    "given": "Kai-jian"
+   },
+   {
+    "family": "Teng",
+    "given": "Yue"
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": "523-530",
+  "article": null
+ },
+ "researchonmultiobjectiveplanningrentalpricingmodeofthepublicrentalhousing": {
+  "authors": [
+   {
+    "family": "Shan",
+    "given": "X."
+   },
+   {
+    "family": "Teng",
+    "given": "Y."
+   },
+   {
+    "family": "Li",
+    "given": "X."
+   }
+  ],
+  "volume": "10",
+  "issue": "6",
+  "pages": "1384-1389",
+  "article": null
+ },
+ "integratingiotandblockchaintomonitorembodiedcarbonofmodularbuildings": {
+  "authors": [
+   {
+    "family": "Chen",
+    "given": "C."
+   },
+   {
+    "family": "Teng",
+    "given": "Y.",
+    "corresponding": true
+   },
+   {
+    "family": "Li",
+    "given": "X."
+   },
+   {
+    "family": "Lau",
+    "given": "B. M."
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": null,
+  "article": null
+ },
+ "carbonoptimizationbasedonthreeechelonmcprojectsupplychainnetworkmodeling": {
+  "authors": [
+   {
+    "family": "Zhang",
+    "given": "Y."
+   },
+   {
+    "family": "Xia",
+    "given": "Z. K."
+   },
+   {
+    "family": "Teng",
+    "given": "Y."
+   },
+   {
+    "family": "Li",
+    "given": "X."
+   },
+   {
+    "family": "Shen",
+    "given": "Q."
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": null,
+  "article": null
+ },
+ "measuringandreducingtheembodiedcarboninhighrisebuildingsthroughinnovativemodularconstruction": {
+  "authors": [
+   {
+    "family": "Wu",
+    "given": "X."
+   },
+   {
+    "family": "Teng",
+    "given": "Y.",
+    "corresponding": true
+   },
+   {
+    "family": "Shen",
+    "given": "G. Q."
+   },
+   {
+    "family": "Zhang",
+    "given": "Z. J."
+   },
+   {
+    "family": "Wang",
+    "given": "Q."
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": "41-48",
+  "article": null
+ },
+ "tabusearchbasedmultiobjectiveoptimizationofworkpackageschemestominimizeprojectcostsandcarbonemissions": {
+  "authors": [
+   {
+    "family": "Zhang",
+    "given": "Y."
+   },
+   {
+    "family": "Teng",
+    "given": "Y.",
+    "corresponding": true
+   },
+   {
+    "family": "Li",
+    "given": "X."
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": "823-830",
+  "article": null
+ },
+ "aframeworkforbimenabledembodiedcarbonassessmentofprefabricatedbuildings": {
+  "authors": [
+   {
+    "family": "Teng",
+    "given": "Y.",
+    "corresponding": true
+   },
+   {
+    "family": "Pan",
+    "given": "W."
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": null,
+  "article": null
+ },
+ "buildinglifecyclecarbonemissionsareview": {
+  "authors": [
+   {
+    "family": "Teng",
+    "given": "Y.",
+    "corresponding": true
+   },
+   {
+    "family": "Pan",
+    "given": "W."
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": null,
+  "article": null
+ },
+ "devicesequipmentandmediaforpredictingcarbonemissionspatentnocn117077837a": {
+  "authors": [
+   {
+    "family": "Teng",
+    "given": "Y."
+   },
+   {
+    "family": "Li",
+    "given": "X."
+   },
+   {
+    "family": "Wu",
+    "given": "C."
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": null,
+  "article": null
+ },
+ "anassessmentmethodapparatusequipmentandmediumforcarbonemissioncontrolpoliciespatentnocn117078057a": {
+  "authors": [
+   {
+    "family": "Teng",
+    "given": "Y."
+   },
+   {
+    "family": "Li",
+    "given": "X."
+   },
+   {
+    "family": "Wu",
+    "given": "C."
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": null,
+  "article": null
+ },
+ "abimlcaintegratedmethodforenhancingefficiencyofembodiedcarbonestimationofprefabricatedhighrisebuildings": {
+  "authors": [
+   {
+    "family": "Xu",
+    "given": "J."
+   },
+   {
+    "family": "Teng",
+    "given": "Y."
+   },
+   {
+    "family": "Pan",
+    "given": "W."
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": "14-23",
+  "article": null
+ },
+ "implicationsofprefabricationforthelifecyclecarbonemissionsofhighrisebuildingsinhighdensityurbanenvironment": {
+  "authors": [
+   {
+    "family": "Pan",
+    "given": "W."
+   },
+   {
+    "family": "Teng",
+    "given": "Y."
+   },
+   {
+    "family": "Li",
+    "given": "K."
+   },
+   {
+    "family": "Yu",
+    "given": "C."
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": "493-502",
+  "article": null
+ },
+ "comparinglifecycleassessmentdatabasesforestimatingcarbonemissionsofprefabricatedbuildings": {
+  "authors": [
+   {
+    "family": "Teng",
+    "given": "Y.",
+    "corresponding": true
+   },
+   {
+    "family": "Pan",
+    "given": "W."
+   },
+   {
+    "family": "Li",
+    "given": "K."
+   }
+  ],
+  "volume": null,
+  "issue": null,
+  "pages": "358-367",
+  "article": null
+ }
+}
