@@ -204,32 +204,118 @@ main { padding: 48px 0 72px; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
 
 /* --------------------------------------------------------------------------
-   Home hero
+   Home: profile column + biography, then the experience timeline band
    -------------------------------------------------------------------------- */
 
-.hero {
+main.home { padding-top: 56px; padding-bottom: 0; }
+
+.home-about,
+.home-band {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 40px;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 28px 56px;
   align-items: start;
-  margin-bottom: 56px;
 }
-.hero-photo img {
+.home-about { padding-bottom: 64px; }
+
+.profile { text-align: center; }
+.profile img {
   width: 220px;
   height: 220px;
+  margin: 0 auto 20px;
   object-fit: cover;
   object-position: top;
   border-radius: 50%;
   border: 1px solid var(--line);
 }
-.hero h1 { margin-bottom: 4px; }
-.hero .role { font-size: 1.05rem; color: var(--muted); margin-bottom: 4px; }
-.hero .dept { color: var(--muted); margin-bottom: 18px; }
-.hero .lead { font-size: 1.05rem; max-width: 620px; }
+.profile h1 { font-size: 1.75rem; margin-bottom: 6px; }
+.profile .role { color: var(--muted); }
+.profile .dept { color: var(--accent); font-size: 0.95rem; line-height: 1.45; margin-top: 6px; }
+.profile .btn-row { justify-content: center; gap: 8px; }
+.profile .btn { padding: 6px 12px; font-size: 0.85rem; }
+
+.bio h2,
+.home-band h2 { font-size: 2.4rem; font-weight: 500; letter-spacing: -0.01em; }
+.bio h2 { margin-bottom: 14px; }
+.bio p { margin: 0; font-size: 1.05rem; }
+.bio-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; margin-top: 36px; }
+.bio-facts h3 { margin-bottom: 10px; }
+
+.interest-list { margin: 0; }
+.interest-list li { padding: 4px 0; }
+.interest-list li::marker { color: var(--accent); }
+.interest-list a { color: inherit; }
+.interest-list a:hover { color: var(--accent); }
+
+.edu-list { list-style: none; padding: 0; margin: 0; }
+.edu-list li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding: 4px 0; }
+.edu-list .where { display: block; color: var(--muted); font-size: 0.88rem; }
+.edu-icon {
+  width: 22px;
+  height: 22px;
+  margin-top: 3px;
+  color: var(--accent);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Full-bleed grey band: the shadow paints the sides, the clip keeps it from overflowing */
+.home-band {
+  padding: 64px 0 72px;
+  background: var(--bg-alt);
+  box-shadow: 0 0 0 100vmax var(--bg-alt);
+  clip-path: inset(0 -100vmax);
+}
+.home-band h2 { margin: 14px 0 0; }
+
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li { position: relative; padding-left: 40px; margin-bottom: 20px; }
+.timeline li:last-child { margin-bottom: 0; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--bg-alt);
+  box-shadow: 0 0 0 5px var(--bg-alt);
+}
+.timeline li.current::before { background: var(--accent); }
+.timeline li::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: -20px;
+  width: 2px;
+  background: var(--accent);
+  opacity: 0.3;
+}
+.timeline li:first-child::after { top: 50%; }
+.timeline li:last-child::after { bottom: 50%; }
+.timeline h3 { font-size: 1.1rem; margin-bottom: 2px; }
+.timeline .when { color: var(--muted); font-size: 0.88rem; margin-top: 2px; }
 
 @media (max-width: 768px) {
-  .hero { grid-template-columns: 1fr; gap: 24px; }
-  .hero-photo img { width: 160px; height: 160px; }
+  main.home { padding-top: 32px; }
+  .home-about,
+  .home-band { grid-template-columns: 1fr; }
+  .home-about { padding-bottom: 48px; }
+  .profile img { width: 160px; height: 160px; }
+  .bio h2,
+  .home-band h2 { font-size: 1.9rem; }
+  .bio-facts { grid-template-columns: 1fr; margin-top: 28px; }
+  .home-band { padding: 44px 0 52px; }
+  .home-band h2 { margin-top: 0; }
+  .timeline li { padding-left: 32px; }
   h1 { font-size: 2rem; }
 }
 
@@ -321,16 +407,6 @@ main { padding: 48px 0 72px; }
 .interest h3 { margin-bottom: 8px; }
 .interest p { margin: 0; font-size: 0.95rem; }
 .interest[id] { scroll-margin-top: 84px; }
-.interest-link {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: inherit;
-  transition: border-color 0.15s;
-}
-.interest-link:hover { border-color: var(--accent); text-decoration: none; }
-.interest-link .interest-icon { flex: none; margin-bottom: 0; }
-.interest-link h3 { margin: 0; }
 
 /* --------------------------------------------------------------------------
    Team
