@@ -320,6 +320,17 @@ main { padding: 48px 0 72px; }
 }
 .interest h3 { margin-bottom: 8px; }
 .interest p { margin: 0; font-size: 0.95rem; }
+.interest[id] { scroll-margin-top: 84px; }
+.interest-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: inherit;
+  transition: border-color 0.15s;
+}
+.interest-link:hover { border-color: var(--accent); text-decoration: none; }
+.interest-link .interest-icon { flex: none; margin-bottom: 0; }
+.interest-link h3 { margin: 0; }
 
 /* --------------------------------------------------------------------------
    Team
