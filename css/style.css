@@ -366,6 +366,7 @@ main.home { padding: 56px 20px 72px; }
   stroke-linejoin: round;
 }
 .interest h3 { margin-bottom: 8px; }
+.interest h3:last-child { margin-bottom: 0; }
 .interest p { margin: 0; font-size: 0.95rem; }
 .interest[id] { scroll-margin-top: 84px; }
 
