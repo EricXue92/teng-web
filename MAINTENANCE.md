@@ -42,7 +42,7 @@
 | year   | 起止时间，可以写到月份。在读成员只填起始时间加横线（如 2023.09–），网站会自动显示为 2023.09–Present | 2023.09– 或 2020.09–2024.06          |
 | email  | 邮箱，可留空                                                                                        | zhang.san@connect.polyu.hk           |
 | photo  | 照片路径，通常留空（见第四节）                                                                      |                                      |
-| bio    | 一句话研究方向或去向（结尾不加句号）                                                        | Embodied carbon of modular buildings |
+| bio    | 一句话研究方向或去向（结尾不加句号）                                                                | Embodied carbon of modular buildings |
 | link   | 个人主页，可留空                                                                                    |                                      |
 
 3. 成员毕业后，把 status 改成 **Alumni**，在 bio 里写去向，网站会自动把这个人移到 Alumni 区。
@@ -69,6 +69,11 @@
 | link        | 项目网址，可留空                                                   |                                                                 |
 
 3. 项目结题后把 status 改成 **Completed**，网站会自动移到 Completed 区。
+
+注意：
+
+- 网站只显示 role 为 **PI** 或 **Co-PI** 的项目，PI 的排在 Co-PI 前面。其他角色（Co-I、Lead Researcher 等）的项目可以留在表格里备查，但不会出现在网站上。
+- description 里的项目编号（写成 `Project No. 15220923.` 这种格式）不会显示在网站上，其余文字照常显示。
 
 ## 四、照片怎么处理
 
