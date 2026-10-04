@@ -214,10 +214,11 @@ main { padding: 48px 0 72px; }
 }
 .hero-photo img {
   width: 220px;
-  height: 280px;
+  height: 220px;
   object-fit: cover;
   object-position: top;
-  border-radius: var(--radius);
+  border-radius: 50%;
+  border: 1px solid var(--line);
 }
 .hero h1 { margin-bottom: 4px; }
 .hero .role { font-size: 1.05rem; color: var(--muted); margin-bottom: 4px; }
@@ -226,7 +227,7 @@ main { padding: 48px 0 72px; }
 
 @media (max-width: 768px) {
   .hero { grid-template-columns: 1fr; gap: 24px; }
-  .hero-photo img { width: 160px; height: 200px; }
+  .hero-photo img { width: 160px; height: 160px; }
   h1 { font-size: 2rem; }
 }
 
