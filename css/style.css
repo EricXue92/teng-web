@@ -158,6 +158,7 @@ main { padding: 48px 0 72px; }
 .section-head .more { font-size: 0.9rem; white-space: nowrap; }
 
 .page-title { margin-bottom: 6px; }
+.page-title + .filters { margin-top: 24px; }
 .page-intro { color: var(--muted); max-width: 640px; margin-bottom: 40px; font-size: 1.05rem; }
 
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
