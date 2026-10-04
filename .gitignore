@@ -2,3 +2,10 @@
 .venv/
 __pycache__/
 .DS_Store
+
+# Original team photos; the site uses the cropped 460px versions (kebab-case names)
+assets/img/team/Chen Chen.jpg
+assets/img/team/Li Zhijie.jpg
+assets/img/team/WuXiaohan.jpg
+assets/img/team/YANG Haodi.jpg
+assets/img/team/YANGQianwen.jpg
