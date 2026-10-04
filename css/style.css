@@ -142,7 +142,12 @@ small, .muted { color: var(--muted); }
    Layout helpers
    -------------------------------------------------------------------------- */
 
-main { padding: 48px 0 72px; }
+/* main.container, not main: .container's own padding would otherwise win on specificity */
+main.container { padding-top: 48px; padding-bottom: 72px; }
+main.container > :last-child { margin-bottom: 0; }
+@media (max-width: 768px) {
+  main.container { padding-top: 32px; padding-bottom: 56px; }
+}
 
 .section { margin-bottom: 56px; }
 .section-head {
