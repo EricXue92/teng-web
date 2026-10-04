@@ -114,7 +114,7 @@
 
   function pubHTML(p) {
     const authors = authorsHTML(p.authors);
-    const year = p.year ? `(${p.year}).` : "";
+    const year = p.year ? `(${esc(p.year)}).` : "";
     const url = safeUrl(p.url);
     const stop = /[.?!]$/.test(p.title) ? "" : ".";
     const title = url
