@@ -101,7 +101,9 @@
 
   function authorsHTML(authors) {
     const names = (authors || []).map((a) => {
-      const name = esc(`${a.family}, ${givenInitials(a.given)}`.replace(/, $/, ""));
+      const name = esc(
+        `${a.family}, ${givenInitials(a.given)}`.replace(/, $/, ""),
+      );
       const star = a.corresponding ? "*" : "";
       const owner = a.family === "Teng" && /^y/i.test(a.given);
       return owner ? `<strong>${name}${star}</strong>` : name + star;
@@ -120,13 +122,18 @@
       : esc(p.title) + stop;
     const dash = (s) => esc(String(s).replace(/\s*-+\s*/g, "–"));
     const patent = p.type === "patent";
-    let source = p.journal ? (patent ? esc(p.journal) : `<em>${esc(p.journal)}</em>`) : "";
+    let source = p.journal
+      ? patent
+        ? esc(p.journal)
+        : `<em>${esc(p.journal)}</em>`
+      : "";
     if (source) {
       if (p.volume) {
         source += `, <em>${esc(p.volume)}</em>${p.issue ? `(${dash(p.issue)})` : ""}`;
       }
       const pages = p.pages || p.article;
-      if (pages) source += `, ${p.volume || !/\d-+\d/.test(pages) ? "" : "pp. "}${dash(pages)}`;
+      if (pages)
+        source += `, ${p.volume || !/\d-+\d/.test(pages) ? "" : "pp. "}${dash(pages)}`;
       source += ".";
     }
     // Without authors the title leads: "Title. (2024). Journal."
@@ -357,11 +364,37 @@
     }
   }
 
+  /* ---------------- awards ---------------- */
+  function awardHTML(a) {
+    const link = safeUrl(a.link);
+    const title = link
+      ? `<a href="${esc(link)}"${linkAttrs(link)}>${esc(a.title)}</a>`
+      : esc(a.title);
+    const issuer = a.issuer ? `, ${esc(a.issuer)}` : "";
+    const when = [a.year, a.note].filter(Boolean).map(esc).join(" · ");
+    return `<li>${title}${issuer}${when ? ` <span class="when">${when}</span>` : ""}</li>`;
+  }
+
+  async function initAwards() {
+    const box = $("#awards-list");
+    if (!box) return;
+    try {
+      const awards = await window.SiteData.loadAwards();
+      box.innerHTML = awards.length
+        ? `<ul class="fact-list">${awards.map(awardHTML).join("")}</ul>`
+        : `<p class="notice">No awards listed yet.</p>`;
+    } catch (err) {
+      console.error(err);
+      fail(box, "awards");
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initNav();
     initPublications();
     initNews();
     initTeam();
     initProjects();
+    initAwards();
   });
 })();

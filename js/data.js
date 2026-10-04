@@ -21,13 +21,22 @@
 
   async function loadTeam() {
     const rows = await loadCSV(cfg.TEAM_CSV_URL, "data/team.csv");
-    // Newest start first. year is like "2025.09–", "2023–" or "2024.06–2025.02";
-    // only the start (year, optional month) counts.
+    // Current members: earliest start first. Alumni: newest start first.
+    // year is like "2025.09–", "2023–" or "2024.06–2025.02"; only the start
+    // (year, optional month) counts, and rows without one go last.
     const start = (r) => {
       const m = /(\d{4})(?:[./](\d{1,2}))?/.exec(r.year || "");
-      return m ? Number(m[1]) * 12 + Number(m[2] || 0) : 0;
+      return m ? Number(m[1]) * 12 + Number(m[2] || 0) : null;
     };
-    return rows.filter((r) => r.name).sort((a, b) => start(b) - start(a));
+    const isAlumni = (r) => /^alumni$/i.test(r.status || "");
+    const byStart = (a, b) => {
+      const [x, y] = [start(a), start(b)];
+      if (x === null || y === null) return (x === null) - (y === null);
+      return isAlumni(a) ? y - x : x - y;
+    };
+    return rows
+      .filter((r) => r.name)
+      .sort((a, b) => isAlumni(a) - isAlumni(b) || byStart(a, b));
   }
 
   async function loadProjects() {
@@ -52,6 +61,15 @@
           roleRank(a) - roleRank(b) ||
           (b.period || "").localeCompare(a.period || ""),
       );
+  }
+
+  async function loadAwards() {
+    const rows = await loadCSV(cfg.AWARDS_CSV_URL, "data/awards.csv");
+    // Newest first. year may list several ("2022, 2025"); the latest one counts.
+    // Awards from the same year keep their Sheet order.
+    const latest = (r) =>
+      Math.max(0, ...((r.year || "").match(/\d{4}/g) || []).map(Number));
+    return rows.filter((r) => r.title).sort((a, b) => latest(b) - latest(a));
   }
 
   function unescapeHTML(s) {
@@ -80,7 +98,10 @@
 
   // A work is identified by its DOI and by its normalised title.
   const pubKeys = (p) =>
-    [(p.doi || "").toLowerCase(), p.title.toLowerCase().replace(/\W+/g, "")].filter(Boolean);
+    [
+      (p.doi || "").toLowerCase(),
+      p.title.toLowerCase().replace(/\W+/g, ""),
+    ].filter(Boolean);
 
   // Keep in sync with simplify in scripts/fetch_citations.py.
   function simplifyCrossref(work) {
@@ -89,7 +110,8 @@
       .filter((a) => a.family);
     authors.forEach((a) => {
       // Crossref has Dr. Teng's name reversed on one record.
-      if (a.family === "Yue" && a.given === "Teng") Object.assign(a, { family: "Teng", given: "Yue" });
+      if (a.family === "Yue" && a.given === "Teng")
+        Object.assign(a, { family: "Teng", given: "Yue" });
     });
     return {
       authors,
@@ -111,13 +133,19 @@
     } catch (err) {
       console.warn("No citation cache:", err.message);
     }
-    const missing = pubs.filter((p) => p.doi && !pubKeys(p).some((k) => cites[k]));
+    const missing = pubs.filter(
+      (p) => p.doi && !pubKeys(p).some((k) => cites[k]),
+    );
     await Promise.all(
       missing.map(async (p) => {
         try {
-          const res = await fetch(`https://api.crossref.org/works/${encodeURIComponent(p.doi)}`);
+          const res = await fetch(
+            `https://api.crossref.org/works/${encodeURIComponent(p.doi)}`,
+          );
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          cites[p.doi.toLowerCase()] = simplifyCrossref((await res.json()).message);
+          cites[p.doi.toLowerCase()] = simplifyCrossref(
+            (await res.json()).message,
+          );
         } catch (err) {
           console.warn(`No Crossref record for ${p.doi}:`, err.message);
         }
@@ -160,12 +188,23 @@
     });
     const cites = await loadCitations(pubs);
     return pubs
-      .map((p) => ({ ...p, ...pubKeys(p).map((k) => cites[k]).find(Boolean) }))
+      .map((p) => ({
+        ...p,
+        ...pubKeys(p)
+          .map((k) => cites[k])
+          .find(Boolean),
+      }))
       .sort(
         (a, b) =>
           (b.year || 0) - (a.year || 0) || a.title.localeCompare(b.title),
       );
   }
 
-  window.SiteData = { loadNews, loadTeam, loadProjects, loadPublications };
+  window.SiteData = {
+    loadNews,
+    loadTeam,
+    loadProjects,
+    loadAwards,
+    loadPublications,
+  };
 })();

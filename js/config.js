@@ -1,7 +1,7 @@
 /* ==========================================================================
    Site configuration — the ONLY file you need to edit to connect data sources.
 
-   NEWS_CSV_URL / TEAM_CSV_URL / PROJECTS_CSV_URL
+   NEWS_CSV_URL / TEAM_CSV_URL / PROJECTS_CSV_URL / AWARDS_CSV_URL
      CSV export link of the Google Sheet (the sheet must be shared as
      "Anyone with the link → Viewer"). Format:
        https://docs.google.com/spreadsheets/d/<SHEET_ID>/export?format=csv
@@ -13,8 +13,13 @@
    ========================================================================== */
 
 window.SITE_CONFIG = {
-  NEWS_CSV_URL: "https://docs.google.com/spreadsheets/d/1_nqWBsD7XeLpJ_eqm1PBBtPH2Y-am0o41axTltJBQiE/export?format=csv&gid=435193556",
-  TEAM_CSV_URL: "https://docs.google.com/spreadsheets/d/1fkD6DYenQXB1iWBPmMnFbkzwvTQkwlECpPXvULxx5Kg/export?format=csv&gid=990698655",
-  PROJECTS_CSV_URL: "https://docs.google.com/spreadsheets/d/1azAKximDZH-W7Aq6YqiSAR_lEkWU5_SQUV6YaCY2XF4/export?format=csv&gid=69834954",
+  NEWS_CSV_URL:
+    "https://docs.google.com/spreadsheets/d/1_nqWBsD7XeLpJ_eqm1PBBtPH2Y-am0o41axTltJBQiE/export?format=csv&gid=435193556",
+  TEAM_CSV_URL:
+    "https://docs.google.com/spreadsheets/d/1fkD6DYenQXB1iWBPmMnFbkzwvTQkwlECpPXvULxx5Kg/export?format=csv&gid=990698655",
+  PROJECTS_CSV_URL:
+    "https://docs.google.com/spreadsheets/d/1azAKximDZH-W7Aq6YqiSAR_lEkWU5_SQUV6YaCY2XF4/export?format=csv&gid=69834954",
+  AWARDS_CSV_URL:
+    "https://docs.google.com/spreadsheets/d/1Hqdr9gVlvEtRt8wFk29Cixl6YeGNxjhTLSXlCSObUjw/export?format=csv&gid=0",
   ORCID_ID: "0000-0002-0333-639X",
 };
