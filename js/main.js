@@ -150,18 +150,6 @@
     }
   }
 
-  async function initHomePubs() {
-    const box = $("#home-pubs");
-    if (!box) return;
-    try {
-      const pubs = (await window.SiteData.loadPublications()).slice(0, 4);
-      box.innerHTML = `<ul class="pub-list">${pubs.map(pubHTML).join("")}</ul>`;
-    } catch (err) {
-      console.error(err);
-      fail(box, "publications");
-    }
-  }
-
   /* ---------------- news ---------------- */
   function newsTitle(n) {
     const link = safeUrl(n.link);
@@ -216,25 +204,6 @@
     } catch (err) {
       console.error(err);
       fail(list, "news");
-    }
-  }
-
-  async function initHomeNews() {
-    const box = $("#home-news");
-    if (!box) return;
-    try {
-      const news = (await window.SiteData.loadNews()).slice(0, 4);
-      box.innerHTML = news.length
-        ? `<ul class="news-compact">${news
-            .map(
-              (n) =>
-                `<li><span class="date">${fmtDate(n.date)}</span><span>${newsTitle(n)}</span></li>`,
-            )
-            .join("")}</ul>`
-        : `<p class="notice">No news yet.</p>`;
-    } catch (err) {
-      console.error(err);
-      fail(box, "news");
     }
   }
 
@@ -351,9 +320,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     initNav();
     initPublications();
-    initHomePubs();
     initNews();
-    initHomeNews();
     initTeam();
     initProjects();
   });

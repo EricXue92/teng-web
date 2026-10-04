@@ -373,11 +373,6 @@ main { padding: 48px 0 72px; }
   .news-item { grid-template-columns: 1fr; gap: 4px; }
 }
 
-.news-compact { list-style: none; padding: 0; margin: 0; }
-.news-compact li { display: flex; gap: 14px; padding: 8px 0; border-bottom: 1px solid var(--line); }
-.news-compact li:last-child { border-bottom: 0; }
-.news-compact .date { color: var(--muted); font-size: 0.85rem; flex: 0 0 90px; padding-top: 2px; }
-
 /* --------------------------------------------------------------------------
    Loading / empty states
    -------------------------------------------------------------------------- */
