@@ -22,9 +22,9 @@
 | date        | 日期，格式 年-月-日                                       | 2025-09-01                                 |
 | title       | 标题（一句话）                                            | Paper accepted in Building and Environment |
 | description | 一两句说明，可留空                                        | Our work on … has been accepted.           |
-| category    | 类别，任选一个：Award / Publication / Event / Recruitment | Publication                                |
+| category    | 类别，任选一个：Award / Publication / Event               | Publication                                |
 | link        | 相关网址，可留空                                          | https://doi.org/10.1016/…                  |
-| image       | 图片路径，通常留空（见第三节）                            |                                            |
+| image       | 图片路径，通常留空（见第五节）                            |                                            |
 
 3. 不用点保存，Google 表格会自动保存。约 1 分钟后刷新网站即可看到。
 
@@ -42,7 +42,7 @@
 | status | 在读填 Current，已毕业填 Alumni                                                                     | Current                              |
 | year   | 起止时间，可以写到月份。在读成员只填起始时间加横线（如 2023.09–），网站会自动显示为 2023.09–Present | 2023.09– 或 2020.09–2024.06          |
 | email  | 邮箱，可留空                                                                                        | zhang.san@connect.polyu.hk           |
-| photo  | 照片路径，通常留空（见第四节）                                                                      |                                      |
+| photo  | 照片路径，通常留空（见第五节）                                                                      |                                      |
 | bio    | 一句话研究方向或去向（结尾不加句号）                                                                | Embodied carbon of modular buildings |
 | link   | 个人主页，可留空                                                                                    |                                      |
 
