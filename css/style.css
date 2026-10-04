@@ -234,8 +234,10 @@ main.home { padding: 56px 20px 72px; }
 .profile h1 { font-size: 1.75rem; margin-bottom: 6px; }
 .profile .role { color: var(--muted); }
 .profile .dept { color: var(--accent); font-size: 0.95rem; line-height: 1.45; margin-top: 6px; }
-.profile .btn-row { justify-content: center; gap: 8px; }
-.profile .btn { padding: 6px 12px; font-size: 0.85rem; }
+.profile-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 16px; }
+.profile-links a { padding: 6px; border-radius: 8px; color: var(--accent); }
+.profile-links a:hover { background: var(--accent-soft); }
+.profile-links svg { display: block; width: 32px; height: 32px; fill: currentColor; }
 
 .bio h2 { font-size: 2.4rem; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 14px; }
 .bio p { margin: 0; font-size: 1.05rem; }
