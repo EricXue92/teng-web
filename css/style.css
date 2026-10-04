@@ -335,6 +335,37 @@ main.home { padding: 56px 20px 72px; }
 .project .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
 .project .desc { margin: 0; font-size: 0.95rem; }
 .project .tag { margin-bottom: 4px; }
+.project-toggle {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.project-toggle:hover { text-decoration: underline; text-underline-offset: 3px; }
+.project-toggle svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.15s;
+}
+.project-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.project-details { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+.project-details p { margin: 0 0 12px; font-size: 0.95rem; }
+.project-details img { width: 100%; margin-top: 8px; border: 1px solid var(--line); border-radius: 8px; }
 
 /* --------------------------------------------------------------------------
    Teaching

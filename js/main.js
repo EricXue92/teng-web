@@ -337,7 +337,35 @@
     const desc = pr.description
       ? `<p class="desc">${esc(pr.description)}</p>`
       : "";
-    return `<li class="card project">${role}<h3>${title}</h3><div class="meta">${meta}</div>${desc}</li>`;
+    const head = `${role}<h3>${title}</h3><div class="meta">${meta}</div>${desc}`;
+
+    // Optional long text (details) and figures (images): the title becomes a
+    // toggle that opens them in place.
+    const paras = (pr.details || "")
+      .split(/\n+/)
+      .map((p) => p.trim())
+      .filter(Boolean);
+    const figs = (pr.images || "")
+      .split(/[;\n]+/)
+      .map((u) => safeUrl(u))
+      .filter(Boolean);
+    if (!paras.length && !figs.length) {
+      return `<li class="card project">${head}</li>`;
+    }
+    const more = link
+      ? `<p><a href="${esc(link)}"${linkAttrs(link)}>Project website</a></p>`
+      : "";
+    const body =
+      paras.map((p) => `<p>${esc(p)}</p>`).join("") +
+      more +
+      figs
+        .map(
+          (u, i) =>
+            `<a href="${esc(u)}" target="_blank" rel="noopener"><img src="${esc(u)}" alt="Figure ${i + 1}: ${esc(pr.title)}" loading="lazy"></a>`,
+        )
+        .join("");
+    const toggle = `<button type="button" class="project-toggle" aria-expanded="false">${esc(pr.title)}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>`;
+    return `<li class="card project">${role}<h3>${toggle}</h3><div class="meta">${meta}</div>${desc}<div class="project-details" hidden>${body}</div></li>`;
   }
 
   async function initProjects() {
@@ -358,6 +386,14 @@
             )
             .join("")
         : `<p class="notice">No projects listed yet.</p>`;
+      box.addEventListener("click", (e) => {
+        const btn = e.target.closest(".project-toggle");
+        if (!btn) return;
+        const open = btn.getAttribute("aria-expanded") !== "true";
+        btn.setAttribute("aria-expanded", String(open));
+        btn.closest(".project").querySelector(".project-details").hidden =
+          !open;
+      });
     } catch (err) {
       console.error(err);
       fail(box, "projects");

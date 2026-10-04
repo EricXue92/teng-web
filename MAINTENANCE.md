@@ -68,8 +68,11 @@
 | status      | 进行中填 Ongoing，已结题填 Completed                               | Ongoing                                                         |
 | description | 一两句项目简介                                                     | Develops a fair allocation framework for …                      |
 | link        | 项目网址，可留空                                                   |                                                                 |
+| details     | 详细介绍，可留空。填了之后，项目标题可以点击展开                   | This project aims to develop …                                  |
+| images      | 详细介绍里的配图路径，可留空；多张图用分号隔开（见第五节）         | assets/img/projects/a-1.jpg; assets/img/projects/a-2.jpg        |
 
 3. 项目结题后把 status 改成 **Completed**，网站会自动移到 Completed 区。
+4. 想让某个项目可以点开看详细介绍：在 details 列写一段文字；需要配图时把图片发给管理员，管理员上传后把路径填进 images 列。两列都留空的项目不会出现展开按钮。
 
 注意：
 
