@@ -303,6 +303,21 @@ main { padding: 48px 0 72px; }
 .course h3 { margin-bottom: 6px; }
 .course .level { color: var(--muted); font-size: 0.85rem; }
 
+.interest-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .interest h3 { margin-bottom: 8px; }
 .interest p { margin: 0; font-size: 0.95rem; }
 
