@@ -47,6 +47,10 @@ body {
   font-size: 16px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  /* column layout keeps the footer at the bottom of the window on short pages */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4 {
@@ -122,7 +126,8 @@ small, .muted { color: var(--muted); }
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+/* Nine nav links need about 880px beside the brand; collapse to the menu button below that */
+@media (max-width: 900px) {
   .nav-toggle { display: inline-block; }
   .site-nav {
     display: none;
@@ -143,7 +148,7 @@ small, .muted { color: var(--muted); }
    -------------------------------------------------------------------------- */
 
 /* main.container, not main: .container's own padding would otherwise win on specificity */
-main.container { padding-top: 48px; padding-bottom: 72px; }
+main.container { flex: 1 0 auto; width: 100%; padding-top: 48px; padding-bottom: 72px; }
 main.container > :last-child { margin-bottom: 0; }
 @media (max-width: 768px) {
   main.container { padding-top: 32px; padding-bottom: 56px; }
@@ -163,7 +168,8 @@ main.container > :last-child { margin-bottom: 0; }
 .section-head .more { font-size: 0.9rem; white-space: nowrap; }
 
 .page-title { margin-bottom: 6px; }
-.page-title + .filters { margin-top: 24px; }
+.page-title + .filters,
+.page-title + .section { margin-top: 24px; }
 .page-intro { color: var(--muted); margin-bottom: 40px; font-size: 1.05rem; }
 
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }

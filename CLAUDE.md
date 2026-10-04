@@ -35,7 +35,7 @@ Three content tiers, each with a different owner and source:
 - `simplifyORCID` in `js/data.js` and `simplify` in `scripts/fetch_orcid.py` must stay in sync: they produce the same publication object shape.
 - `data/publications-extra.json` holds works from the owner's CV that ORCID does not list (same object shape). `loadPublications` appends them and drops any entry whose DOI or title ORCID already has, so entries can stay after ORCID catches up.
 - `data/citations.json` holds what ORCID lacks for a journal-style reference (authors, volume, issue, pages), keyed by lower-case DOI, or by normalised title for works without one. `loadPublications` merges it in; a DOI missing from the cache is looked up on Crossref in the browser, so new ORCID works still get full references. `simplifyCrossref` in `js/data.js` and `simplify` in `scripts/fetch_citations.py` must stay in sync. The no-DOI entries and the `"corresponding": true` author marks (rendered as `*`) were entered by hand from the owner's CV; the script preserves both.
-- The header and footer are duplicated verbatim in all seven HTML pages. A nav or footer change must be applied to every page.
+- The header and footer are duplicated verbatim in all nine HTML pages. A nav or footer change must be applied to every page.
 - Colours, fonts and dark-mode values are CSS variables at the top of `css/style.css`.
 
 ## Docs for humans
