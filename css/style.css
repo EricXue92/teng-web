@@ -280,10 +280,69 @@ main.home { padding: 56px 20px 72px; }
   h1 { font-size: 2rem; }
 }
 
-.fact-list { list-style: none; padding: 0; margin: 0; }
-.fact-list li { padding: 8px 0; border-bottom: 1px solid var(--line); }
-.fact-list li:last-child { border-bottom: 0; }
-.fact-list .when { color: var(--muted); font-size: 0.85rem; display: block; }
+/* Awards: centred heading, then cards with the certificate on the right */
+.awards-head { text-align: center; margin-bottom: 40px; }
+.awards-head .tag {
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  padding: 4px 18px;
+  border-radius: 6px;
+  margin: 0 0 14px;
+}
+.awards-head .page-intro { margin-bottom: 0; }
+.award-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.award {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px 24px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.09), 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.award h2 { font-size: 1.1rem; margin: 0 0 4px; }
+.award dl { margin: 0; font-size: 0.9rem; }
+.award dl div { margin-top: 8px; }
+.award dt { display: inline; color: var(--muted); margin-right: 4px; }
+.award dd { display: inline; margin: 0; }
+.award .note { color: var(--muted); font-size: 0.85rem; margin: 10px 0 0; }
+.award-thumb {
+  flex: 0 0 96px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+}
+.award-thumb img { width: 100%; max-height: 132px; object-fit: contain; }
+.award-thumb.placeholder {
+  display: grid;
+  place-items: center;
+  height: 120px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: none;
+}
+.award-thumb svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (max-width: 768px) {
+  .award-list { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 420px) {
+  .award { padding: 18px; gap: 14px; }
+  .award-thumb { flex-basis: 76px; }
+  .award-thumb.placeholder { height: 96px; }
+}
 
 .link-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 18px; }
 .link-list a { font-weight: 500; }

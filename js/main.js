@@ -401,14 +401,28 @@
   }
 
   /* ---------------- awards ---------------- */
+  const AWARD_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="m8.5 13.5-1.5 8 5-2.8 5 2.8-1.5-8"/></svg>`;
+
   function awardHTML(a) {
     const link = safeUrl(a.link);
     const title = link
       ? `<a href="${esc(link)}"${linkAttrs(link)}>${esc(a.title)}</a>`
       : esc(a.title);
-    const issuer = a.issuer ? `, ${esc(a.issuer)}` : "";
-    const when = [a.year, a.note].filter(Boolean).map(esc).join(" · ");
-    return `<li>${title}${issuer}${when ? ` <span class="when">${when}</span>` : ""}</li>`;
+    const facts = [
+      ["Year", a.year],
+      ["Awarded by", a.issuer],
+    ]
+      .filter(([, v]) => v)
+      .map(([k, v]) => `<div><dt>${k}:</dt><dd>${esc(v)}</dd></div>`)
+      .join("");
+    const note = a.note ? `<p class="note">${esc(a.note)}</p>` : "";
+    // Certificate picture (image column); without one a placeholder keeps the
+    // card shape.
+    const img = safeUrl(a.image);
+    const thumb = img
+      ? `<a class="award-thumb" href="${esc(img)}" target="_blank" rel="noopener"><img src="${esc(img)}" alt="Certificate: ${esc(a.title)}" loading="lazy"></a>`
+      : `<span class="award-thumb placeholder">${AWARD_ICON}</span>`;
+    return `<li class="award"><div class="award-body"><h2>${title}</h2><dl>${facts}</dl>${note}</div>${thumb}</li>`;
   }
 
   async function initAwards() {
@@ -417,7 +431,7 @@
     try {
       const awards = await window.SiteData.loadAwards();
       box.innerHTML = awards.length
-        ? `<ul class="fact-list">${awards.map(awardHTML).join("")}</ul>`
+        ? `<ul class="award-list">${awards.map(awardHTML).join("")}</ul>`
         : `<p class="notice">No awards listed yet.</p>`;
     } catch (err) {
       console.error(err);
