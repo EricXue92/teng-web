@@ -282,15 +282,6 @@ main.home { padding: 56px 20px 72px; }
 
 /* Awards: centred heading, then cards with the certificate on the right */
 .awards-head { text-align: center; margin-bottom: 40px; }
-.awards-head .tag {
-  background: var(--accent);
-  color: var(--bg);
-  font-family: var(--font-head);
-  font-size: 0.95rem;
-  padding: 4px 18px;
-  border-radius: 6px;
-  margin: 0 0 14px;
-}
 .awards-head .page-intro { margin-bottom: 0; }
 .award-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 .award {
