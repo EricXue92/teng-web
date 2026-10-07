@@ -30,8 +30,10 @@
   const linkAttrs = (url) =>
     isExternal(url) ? ' target="_blank" rel="noopener"' : "";
 
-  /* Sheet text may contain Markdown-style links: "see [Prof. X](https://…)".
-     Everything else is escaped as plain text. */
+  /* Sheet text may contain Markdown-style links: "see [Prof. X](https://…)",
+     and line breaks (Alt+Enter in a Sheet cell) become <br>. Everything else
+     is escaped as plain text. */
+  const lines = (t) => esc(t).replace(/\r?\n/g, "<br>");
   const richText = (s) => {
     const re = /\[([^\]]+)\]\(([^)\s]+)\)/g;
     const str = String(s ?? "");
@@ -39,14 +41,14 @@
     let last = 0;
     let m;
     while ((m = re.exec(str))) {
-      out += esc(str.slice(last, m.index));
+      out += lines(str.slice(last, m.index));
       const u = safeUrl(m[2]);
       out += u
         ? `<a href="${esc(u)}"${linkAttrs(u)}>${esc(m[1])}</a>`
         : esc(m[1]);
       last = m.index + m[0].length;
     }
-    return out + esc(str.slice(last));
+    return out + lines(str.slice(last));
   };
 
   /* Only allow http(s), mailto and relative paths from user-editable data;

@@ -51,13 +51,19 @@
 
 没有照片的成员会显示姓名首字母的圆形头像。
 
-bio 里可以加链接：把要显示的文字放在方括号里，紧跟着把网址放在圆括号里，中间不要有空格。例如：
+bio 里可以换行和加链接：
+
+- 换行：在单元格里按 **Alt+Enter**（Mac 上按 **Option+Enter** 或 **Cmd+Enter**），网站上会在同一位置换行。
+- 链接：把要显示的文字放在方括号里，紧跟着把网址放在圆括号里，中间不要有空格。
+
+例如单元格里写两行：
 
 ```
-Urban buildings, carbon emissions · Co-supervised by [Prof. Geoffrey Shen](https://www.polyu.edu.hk/ppoffice/senior-management-team/avpgp/)
+Urban buildings, carbon emissions, spatio-temporal analysis
+Co-supervised by [Prof. Geoffrey Shen](https://www.polyu.edu.hk/ppoffice/senior-management-team/avpgp/)
 ```
 
-网站上会显示成 "… Co-supervised by Prof. Geoffrey Shen"，其中名字可以点击。
+网站上第二行会显示成 "Co-supervised by Prof. Geoffrey Shen"，其中名字可以点击。
 
 成员会按 year 列的开始时间自动排序：在读成员在各自的身份分组内，最早加入的排在最前面；已毕业成员（Alumni）则是最近加入的排在前面。表格里行的先后顺序不影响显示。
 
