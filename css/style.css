@@ -490,6 +490,8 @@ main.home { padding: 56px 20px 72px; }
 .member .name { font-weight: 600; }
 .member .role { color: var(--muted); font-size: 0.88rem; }
 .member .bio { font-size: 0.92rem; margin: 4px 0 0; }
+.member .bio a { color: inherit; }
+.member .bio a:hover { color: var(--accent); }
 .member .email { font-size: 0.85rem; }
 
 /* --------------------------------------------------------------------------
