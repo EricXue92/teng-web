@@ -271,6 +271,12 @@ main.home { padding: 56px 20px 72px; }
   stroke-linejoin: round;
 }
 
+.home-collab { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); }
+.home-collab h3 { margin-bottom: 10px; }
+.collab-list { list-style: none; padding: 0; margin: 0; }
+.collab-list li { padding: 4px 0; }
+.collab-list .where { display: block; color: var(--muted); font-size: 0.88rem; }
+
 @media (max-width: 768px) {
   main.home { padding: 32px 20px 56px; }
   .home-about { grid-template-columns: 1fr; }
