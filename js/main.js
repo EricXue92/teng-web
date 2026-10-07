@@ -30,6 +30,25 @@
   const linkAttrs = (url) =>
     isExternal(url) ? ' target="_blank" rel="noopener"' : "";
 
+  /* Sheet text may contain Markdown-style links: "see [Prof. X](https://…)".
+     Everything else is escaped as plain text. */
+  const richText = (s) => {
+    const re = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+    const str = String(s ?? "");
+    let out = "";
+    let last = 0;
+    let m;
+    while ((m = re.exec(str))) {
+      out += esc(str.slice(last, m.index));
+      const u = safeUrl(m[2]);
+      out += u
+        ? `<a href="${esc(u)}"${linkAttrs(u)}>${esc(m[1])}</a>`
+        : esc(m[1]);
+      last = m.index + m[0].length;
+    }
+    return out + esc(str.slice(last));
+  };
+
   /* Only allow http(s), mailto and relative paths from user-editable data;
      anything else (javascript:, data:, …) is dropped. */
   const safeUrl = (url) => {
@@ -282,7 +301,7 @@
     const email = /^[^\s@]+@[^\s@]+$/.test(m.email || "")
       ? `<div class="email"><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></div>`
       : "";
-    const bio = m.bio ? `<p class="bio">${esc(m.bio)}</p>` : "";
+    const bio = m.bio ? `<p class="bio">${richText(m.bio)}</p>` : "";
     return `<div class="member">${avatarHTML(m)}<div><div class="name">${name}</div><div class="role">${esc(m.role)}${year}</div>${bio}${email}</div></div>`;
   }
 
