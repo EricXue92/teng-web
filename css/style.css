@@ -488,6 +488,8 @@ main.home { padding: 56px 20px 72px; }
   font-size: 1.7rem;
 }
 .member .name { font-weight: 600; }
+.member .name a { color: inherit; }
+.member .name a:hover { color: var(--accent); }
 .member .role { color: var(--muted); font-size: 0.88rem; }
 .member .bio { font-size: 0.92rem; margin: 4px 0 0; }
 .member .bio a { color: inherit; }
