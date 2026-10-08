@@ -450,37 +450,33 @@ main.home { padding: 56px 20px 72px; }
 .interest h3:last-child { margin-bottom: 0; }
 .interest p { margin: 0; font-size: 0.95rem; }
 .interest[id] { scroll-margin-top: 84px; }
-/* research points under a theme: hidden behind a "More" toggle, each a short description and its figure */
-.research-more summary {
+/* "More" on a research theme card links to that theme's own page */
+.more-link {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   margin-top: 4px;
-  color: var(--accent);
   font-size: 0.95rem;
   font-weight: 500;
-  cursor: pointer;
-  list-style: none;
 }
-.research-more summary::-webkit-details-marker { display: none; }
-.research-more summary:hover { text-decoration: underline; text-underline-offset: 3px; }
-.research-more summary svg {
-  width: 18px;
-  height: 18px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: transform 0.15s;
+.more-link svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* theme page (research-*.html): one row per research point, description beside its figure */
+.back-link { display: inline-block; margin-bottom: 12px; font-size: 0.95rem; }
+.research-point {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 32px;
+  align-items: start;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
 }
-.research-more .less,
-.research-more[open] .more { display: none; }
-.research-more[open] .less { display: inline; }
-.research-more[open] summary svg { transform: rotate(180deg); }
-.research-point { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
-.research-point p { margin: 0 0 10px; font-size: 0.95rem; }
+.research-point:last-child { border-bottom: 1px solid var(--line); }
+.research-point p { margin: 0; }
 .research-point img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+@media (max-width: 768px) {
+  .research-point { grid-template-columns: 1fr; gap: 14px; padding: 20px 0; }
+}
 
 /* --------------------------------------------------------------------------
    Team

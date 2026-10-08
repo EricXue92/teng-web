@@ -88,7 +88,9 @@
     ).toLowerCase();
     document.querySelectorAll(".site-nav a").forEach((a) => {
       const target = (a.getAttribute("href") || "").toLowerCase();
-      if (target === here) a.classList.add("active");
+      // research-*.html theme pages count as Research
+      if (target === here || (target === "research.html" && here.startsWith("research-")))
+        a.classList.add("active");
     });
     const toggle = $(".nav-toggle");
     const nav = $(".site-nav");
