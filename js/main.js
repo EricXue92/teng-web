@@ -292,19 +292,20 @@
       : `<div class="avatar" aria-hidden="true">${esc(initials(m.name))}</div>`;
   }
 
-  function memberHTML(m) {
+  // current members sit under a role heading, so their cards omit the role
+  function memberHTML(m, showRole = true) {
     const link = safeUrl(m.link);
     const name = link
       ? `<a href="${esc(link)}"${linkAttrs(link)}>${esc(m.name)}</a>`
       : esc(m.name);
     // current members: an open-ended year such as "2026–" is shown as "2026–Present"
     const span = (m.year || "").trim().replace(/\s*[-–—]$/, "–Present");
-    const year = span ? ` · ${esc(span)}` : "";
+    const meta = [showRole ? m.role : "", span].filter(Boolean).map(esc).join(" · ");
     const email = /^[^\s@]+@[^\s@]+$/.test(m.email || "")
       ? `<div class="email"><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></div>`
       : "";
     const bio = m.bio ? `<p class="bio">${richText(m.bio)}</p>` : "";
-    return `<div class="member">${avatarHTML(m)}<div><div class="name">${name}</div><div class="role">${esc(m.role)}${year}</div>${bio}${email}</div></div>`;
+    return `<div class="member">${avatarHTML(m)}<div><div class="name">${name}</div>${meta ? `<div class="role">${meta}</div>` : ""}${bio}${email}</div></div>`;
   }
 
   async function initTeam() {
@@ -327,14 +328,14 @@
           ? roles
               .map((r) => {
                 const list = cur.filter((m) => (m.role || "Member") === r);
-                return `<section class="member-group"><h3>${esc(r)}${list.length > 1 ? "s" : ""}</h3><div class="members">${list.map(memberHTML).join("")}</div></section>`;
+                return `<section class="member-group"><h3>${esc(r)}${list.length > 1 ? "s" : ""}</h3><div class="members">${list.map((m) => memberHTML(m, false)).join("")}</div></section>`;
               })
               .join("")
           : `<p class="notice">No current members listed.</p>`;
       }
       if (alumni) {
         alumni.innerHTML = old.length
-          ? `<div class="members">${old.map(memberHTML).join("")}</div>`
+          ? `<div class="members">${old.map((m) => memberHTML(m, true)).join("")}</div>`
           : `<p class="notice">No alumni listed yet.</p>`;
       }
     } catch (err) {
