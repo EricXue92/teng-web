@@ -465,7 +465,7 @@ main.home { padding: 56px 20px 72px; }
 .back-link { display: inline-block; margin-bottom: 12px; font-size: 0.95rem; }
 .research-point {
   display: grid;
-  grid-template-columns: 11fr 9fr;
+  grid-template-columns: 2fr 3fr;
   gap: 36px;
   align-items: start;
   padding: 28px 0;
