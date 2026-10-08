@@ -450,6 +450,10 @@ main.home { padding: 56px 20px 72px; }
 .interest h3:last-child { margin-bottom: 0; }
 .interest p { margin: 0; font-size: 0.95rem; }
 .interest[id] { scroll-margin-top: 84px; }
+/* one research point under a theme: a short description and its figure */
+.research-point { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+.research-point p { margin: 0 0 10px; }
+.research-point img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
 
 /* --------------------------------------------------------------------------
    Team
