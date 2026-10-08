@@ -450,35 +450,37 @@ main.home { padding: 56px 20px 72px; }
 .interest h3:last-child { margin-bottom: 0; }
 .interest p { margin: 0; font-size: 0.95rem; }
 .interest[id] { scroll-margin-top: 84px; }
-/* research points under a theme: one collapsed row each (the description), opening to its figure */
-.research-points { margin-top: 14px; border-top: 1px solid var(--line); }
-.research-point { border-bottom: 1px solid var(--line); }
-.research-point:last-child { border-bottom: 0; }
-.research-point summary {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 0;
+/* research points under a theme: hidden behind a "More" toggle, each a short description and its figure */
+.research-more summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  color: var(--accent);
   font-size: 0.95rem;
+  font-weight: 500;
   cursor: pointer;
   list-style: none;
 }
-.research-point summary::-webkit-details-marker { display: none; }
-.research-point summary:hover { color: var(--accent); }
-.research-point summary svg {
-  flex: none;
-  width: 20px;
-  height: 20px;
-  margin-top: 2px;
+.research-more summary::-webkit-details-marker { display: none; }
+.research-more summary:hover { text-decoration: underline; text-underline-offset: 3px; }
+.research-more summary svg {
+  width: 18px;
+  height: 18px;
   fill: none;
-  stroke: var(--accent);
+  stroke: currentColor;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
   transition: transform 0.15s;
 }
-.research-point[open] summary svg { transform: rotate(180deg); }
-.research-point img { width: 100%; height: auto; margin-bottom: 14px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.research-more .less,
+.research-more[open] .more { display: none; }
+.research-more[open] .less { display: inline; }
+.research-more[open] summary svg { transform: rotate(180deg); }
+.research-point { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+.research-point p { margin: 0 0 10px; font-size: 0.95rem; }
+.research-point img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
 
 /* --------------------------------------------------------------------------
    Team
