@@ -43,10 +43,10 @@
 | year   | 起止时间，可以写到月份。在读成员只填起始时间加横线（如 2023.09–），网站会自动显示为 2023.09–Present | 2023.09– 或 2020.09–2024.06          |
 | email  | 邮箱，可留空                                                                                        | zhang.san@connect.polyu.hk           |
 | photo  | 照片路径，通常留空（见第五节）                                                                      |                                      |
-| bio    | 一句话研究方向或去向（结尾不加句号）。需要加链接时写成 `[显示文字](网址)`，见下方说明                 | Embodied carbon of modular buildings |
+| bio    | 一句话研究方向（结尾不加句号）。      需要加链接时写成 `[显示文字](网址)`，见下方说明                 | Embodied carbon of modular buildings |
 | link   | 个人主页，可留空                                                                                    |                                      |
 
-3. 成员毕业后，把 status 改成 **Alumni**，在 bio 里写去向，网站会自动把这个人移到 Alumni 区。
+3. 成员毕业后，把 status 改成 **Alumni**，bio 保留研究方向，网站会自动把这个人移到 Alumni 区。
 4. 要删除某人，直接删掉那一行。
 
 没有照片的成员会显示姓名首字母的圆形头像。
