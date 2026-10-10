@@ -259,6 +259,7 @@ main.home { padding: 56px 20px 72px; }
 .edu-list { list-style: none; padding: 0; margin: 0; }
 .edu-list li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding: 4px 0; }
 .edu-list .where { display: block; color: var(--muted); font-size: 0.88rem; }
+.edu-list .nowrap { white-space: nowrap; }
 .edu-icon {
   width: 22px;
   height: 22px;
