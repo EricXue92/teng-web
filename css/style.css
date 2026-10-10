@@ -89,6 +89,37 @@ small, .muted { color: var(--muted); }
   z-index: 10;
 }
 
+/* Floral pattern at both ends of the header, fading towards the middle.
+   The right-hand copy is mirrored. */
+.site-header::before,
+.site-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: min(50%, 640px);
+  z-index: -1;
+  background: url("../assets/img/header-floral.svg") no-repeat left -18px top -100px / auto 210px;
+  -webkit-mask-image: linear-gradient(to right, #000 30%, transparent);
+  mask-image: linear-gradient(to right, #000 30%, transparent);
+  pointer-events: none;
+}
+.site-header::after {
+  left: auto;
+  right: 0;
+  transform: scaleX(-1);
+}
+/* Dark theme: invert the pattern so its near-white ground turns black, and
+   screen it onto the header so only the flowers show. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .site-header::before,
+  :root:not([data-theme="light"]) .site-header::after {
+    filter: invert(1) hue-rotate(180deg) brightness(2.2);
+    mix-blend-mode: screen;
+  }
+}
+
 .nav-wrap {
   display: flex;
   align-items: center;
