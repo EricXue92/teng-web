@@ -65,11 +65,15 @@
 
   async function loadAwards() {
     const rows = await loadCSV(cfg.AWARDS_CSV_URL, "data/awards.csv");
-    // Newest first. year may list several ("2022, 2025"); the latest one counts.
-    // Awards from the same year keep their Sheet order.
-    const latest = (r) =>
-      Math.max(0, ...((r.year || "").match(/\d{4}/g) || []).map(Number));
-    return rows.filter((r) => r.title).sort((a, b) => latest(b) - latest(a));
+    // year may list several ("2022, 2025"): each year becomes its own award.
+    // Newest first; awards from the same year keep their Sheet order.
+    return rows
+      .filter((r) => r.title)
+      .flatMap((r) => {
+        const years = [...new Set((r.year || "").match(/\d{4}/g) || [])];
+        return years.length > 1 ? years.map((year) => ({ ...r, year })) : [r];
+      })
+      .sort((a, b) => (parseInt(b.year, 10) || 0) - (parseInt(a.year, 10) || 0));
   }
 
   function unescapeHTML(s) {
