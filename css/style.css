@@ -209,9 +209,30 @@ main.container > :last-child { margin-bottom: 0; }
   align-items: baseline;
   justify-content: space-between;
   gap: 16px;
-  border-bottom: 1px solid var(--line);
   padding-bottom: 10px;
   margin-bottom: 22px;
+  position: relative;
+}
+/* Divider under section headings: a grey rule ending in a rose at the right.
+   The rule sits 41px down the 60px-high image, so the image hangs 19px below. */
+.section-head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -19px;
+  height: 60px;
+  background: url("../assets/img/section-divider.svg") no-repeat right top / auto 60px;
+  pointer-events: none;
+}
+/* Dark theme: invert the grey drawing so it reads as a faint sketch on the dark ground. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .section-head::after { filter: invert(1) brightness(1.5); }
+}
+/* Small screens: a smaller rose, and room beside it so a long heading does not run under it. */
+@media (max-width: 600px) {
+  .section-head::after { height: 40px; bottom: -13px; background-size: auto 40px; }
+  .section-head h2 { padding-right: 88px; }
 }
 .section-head h2 { margin: 0; }
 .section-head .more { font-size: 0.9rem; white-space: nowrap; }
