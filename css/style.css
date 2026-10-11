@@ -7,6 +7,8 @@
   --accent: #1f4d3a;
   --accent-soft: #e4efe9;
   --accent-text: #17392b;
+  --nav-active: #ff8fa2;
+  --nav-active-bg: #fff7f6;
   --bg: #ffffff;
   --bg-alt: #f5f6f5;
   --text: #1a1a1a;
@@ -25,6 +27,8 @@
     --accent: #7fc4a4;
     --accent-soft: #1d2f27;
     --accent-text: #a9dcc4;
+    --nav-active: #ff8fa2;
+    --nav-active-bg: #3a2228;
     --bg: #101413;
     --bg-alt: #171d1b;
     --text: #e8ebea;
@@ -133,7 +137,7 @@ small, .muted { color: var(--muted); }
   font-weight: 600;
   color: var(--text);
 }
-.brand:hover { text-decoration: none; color: var(--accent); }
+.brand:hover { text-decoration: none; color: var(--nav-active); }
 
 .site-nav { display: flex; gap: 6px; }
 .site-nav a {
@@ -144,7 +148,7 @@ small, .muted { color: var(--muted); }
   border-radius: 6px;
 }
 .site-nav a:hover { color: var(--text); background: var(--bg-alt); text-decoration: none; }
-.site-nav a.active { color: var(--accent-text); background: var(--accent-soft); }
+.site-nav a.active { color: var(--nav-active); background: var(--nav-active-bg); }
 
 .nav-toggle {
   display: none;
