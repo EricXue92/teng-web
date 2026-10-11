@@ -213,9 +213,10 @@ main.container > :last-child { margin-bottom: 0; }
   margin-bottom: 22px;
   position: relative;
 }
-/* Divider under section headings: a grey rule ending in a rose at the right.
+/* Divider under section headings and year / status group headings: a grey rule ending in a rose at the right.
    The rule sits 41px down the 60px-high image, so the image hangs 19px below. */
-.section-head::after {
+.section-head::after,
+.year-group > h3::after {
   content: "";
   position: absolute;
   left: 0;
@@ -227,11 +228,13 @@ main.container > :last-child { margin-bottom: 0; }
 }
 /* Dark theme: invert the grey drawing so it reads as a faint sketch on the dark ground. */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .section-head::after { filter: invert(1) brightness(1.5); }
+  :root:not([data-theme="light"]) .section-head::after,
+  :root:not([data-theme="light"]) .year-group > h3::after { filter: invert(1) brightness(1.5); }
 }
 /* Small screens: a smaller rose, and room beside it so a long heading does not run under it. */
 @media (max-width: 600px) {
-  .section-head::after { height: 40px; bottom: -13px; background-size: auto 40px; }
+  .section-head::after,
+  .year-group > h3::after { height: 40px; bottom: -13px; background-size: auto 40px; }
   .section-head h2 { padding-right: 88px; }
 }
 .section-head h2 { margin: 0; }
@@ -438,9 +441,9 @@ main.home { padding: 56px 20px 72px; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
-  border-bottom: 1px solid var(--line);
   padding-bottom: 6px;
-  margin-bottom: 14px;
+  margin-bottom: 22px;
+  position: relative; /* rose divider, see .section-head::after */
 }
 
 .pub-list { list-style: none; padding: 0; margin: 0; }
@@ -467,7 +470,7 @@ main.home { padding: 56px 20px 72px; }
   padding: 0;
   border: 0;
   background: none;
-  color: var(--accent);
+  color: inherit;
   font: inherit;
   text-align: left;
   cursor: pointer;
@@ -498,9 +501,17 @@ main.home { padding: 56px 20px 72px; }
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.05em;
-  color: var(--accent);
+  color: var(--text);
   margin-bottom: 4px;
 }
+/* Titles and in-text links that read as body text: black, underlined on hover. */
+.more-link,
+.project h3 a,
+.pub a,
+.news-item a.title,
+.join p a { color: var(--text); }
+.join p a { text-decoration: underline; text-underline-offset: 3px; }
+
 .course h3 { margin-bottom: 6px; }
 .course .level { color: var(--muted); font-size: 0.85rem; }
 
