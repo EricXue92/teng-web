@@ -4,9 +4,9 @@
    ========================================================================== */
 
 :root {
-  --accent: #1f4d3a;
-  --accent-soft: #e4efe9;
-  --accent-text: #17392b;
+  --accent: #a0a7ef;
+  --accent-soft: #f4f8fe;
+  --accent-text: #a0a7ef;
   --nav-active: #ff8fa2;
   --nav-active-bg: #fff7f6;
   --bg: #ffffff;
@@ -24,9 +24,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --accent: #7fc4a4;
-    --accent-soft: #1d2f27;
-    --accent-text: #a9dcc4;
+    --accent: #a0a7ef;
+    --accent-soft: #1f2238;
+    --accent-text: #c3c8f7;
     --nav-active: #ff8fa2;
     --nav-active-bg: #3a2228;
     --bg: #101413;
@@ -36,6 +36,20 @@
     --line: #262e2b;
     --card: #151b19;
     --skeleton: #222a27;
+  }
+}
+
+/* The Awards page keeps the original green accent. */
+.page-awards {
+  --accent: #1f4d3a;
+  --accent-soft: #e4efe9;
+  --accent-text: #17392b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .page-awards {
+    --accent: #7fc4a4;
+    --accent-soft: #1d2f27;
+    --accent-text: #a9dcc4;
   }
 }
 
