@@ -144,7 +144,8 @@ small,
 }
 
 /* Floral pattern at both ends of the header, fading towards the middle.
-   The right-hand copy is mirrored. */
+   One image holds both sprays: its left end shows on the left, its right end
+   on the right. */
 .site-header::before,
 .site-header::after {
   content: "";
@@ -152,24 +153,44 @@ small,
   top: 0;
   bottom: 0;
   left: 0;
-  width: min(50%, 640px);
+  width: min(50%, 300px);
   z-index: -1;
-  background: url("../assets/img/header-floral.svg") no-repeat left -18px
-    top -100px / auto 210px;
-  -webkit-mask-image: linear-gradient(to right, #000 30%, transparent);
-  mask-image: linear-gradient(to right, #000 30%, transparent);
+  background: url("../assets/img/header-floral.svg") no-repeat left top -78px /
+    auto 210px;
+  -webkit-mask-image: linear-gradient(to right, #000 65%, transparent);
+  mask-image: linear-gradient(to right, #000 65%, transparent);
   pointer-events: none;
 }
 .site-header::after {
   left: auto;
   right: 0;
-  transform: scaleX(-1);
+  background-position: right top -50px;
+  -webkit-mask-image: linear-gradient(to left, #000 65%, transparent);
+  mask-image: linear-gradient(to left, #000 65%, transparent);
 }
-/* Dark theme: invert the pattern so its near-white ground turns black, and
-   screen it onto the header so only the flowers show. */
+
+/* Home page: a faint rose in the top right corner, behind the content. */
+.page-home {
+  position: relative;
+}
+.page-home::before {
+  content: "";
+  position: absolute;
+  top: 64px;
+  right: 0;
+  width: min(60%, 400px);
+  aspect-ratio: 852 / 724;
+  z-index: -1;
+  background: url("../assets/img/home-floral.svg") no-repeat right top / contain;
+  pointer-events: none;
+}
+
+/* Dark theme: invert the patterns so their near-white ground turns black, and
+   screen them onto the page so only the flowers show. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .site-header::before,
-  :root:not([data-theme="light"]) .site-header::after {
+  :root:not([data-theme="light"]) .site-header::after,
+  :root:not([data-theme="light"]) .page-home::before {
     filter: invert(1) hue-rotate(180deg) brightness(2.2);
     mix-blend-mode: screen;
   }
