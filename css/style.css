@@ -1010,6 +1010,9 @@ main.home {
 .member .email {
   font-size: 0.85rem;
 }
+.member .email a {
+  color: var(--text);
+}
 
 /* --------------------------------------------------------------------------
    News timeline
