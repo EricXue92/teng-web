@@ -529,6 +529,13 @@ main.home {
 .edu-list .nowrap {
   white-space: nowrap;
 }
+.edu-list .uni-logo {
+  display: inline-block;
+  height: 20px;
+  width: auto;
+  margin-right: 6px;
+  vertical-align: -5px;
+}
 .edu-icon {
   width: 22px;
   height: 22px;
