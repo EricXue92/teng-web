@@ -538,7 +538,7 @@ main.home {
 }
 .edu-list li {
   display: grid;
-  grid-template-columns: 22px 1fr;
+  grid-template-columns: 24px 1fr;
   gap: 10px;
   padding: 4px 0;
 }
@@ -550,25 +550,12 @@ main.home {
 .edu-list .nowrap {
   white-space: nowrap;
 }
-.edu-list .uni-logo {
-  display: inline-block;
-  height: 20px;
-  width: auto;
-  margin-right: 6px;
-  vertical-align: -5px;
+.edu-logo {
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+  object-fit: contain;
 }
-.edu-icon {
-  width: 22px;
-  height: 22px;
-  margin-top: 3px;
-  color: var(--accent);
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
 @media (max-width: 768px) {
   main.home {
     padding: 32px 20px 56px;
