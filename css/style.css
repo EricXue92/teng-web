@@ -500,6 +500,7 @@ main.home {
 .bio p {
   margin: 0;
   font-size: 1.05rem;
+  text-align: justify;
 }
 .bio p + p {
   margin-top: 12px;
@@ -572,6 +573,10 @@ main.home {
   }
   .bio h2 {
     font-size: 1.9rem;
+  }
+  /* Justified text leaves wide gaps in a phone-width column. */
+  .bio p {
+    text-align: left;
   }
   .bio-facts {
     grid-template-columns: 1fr;
