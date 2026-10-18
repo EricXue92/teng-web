@@ -78,7 +78,7 @@ Co-supervised by [Prof. Geoffrey Shen](https://www.polyu.edu.hk/ppoffice/senior-
 | role        | 您的角色，如 PI / Co-PI / Co-I / Lead Researcher / Key Participant | PI                                                              |
 | funder      | 资助机构                                                           | Research Grants Council (RGC) Early Career Scheme               |
 | period      | 起止年份                                                           | 2025–2027                                                       |
-| amount      | 金额，可留空                                                       | HK$ 1,000,000                                                   |
+| amount      | 金额，可留空                                                       | HK$1,000,000                                                    |
 | status      | 进行中填 Ongoing，已结题填 Completed                               | Ongoing                                                         |
 | description | 一两句项目简介                                                     | Develops a fair allocation framework for …                      |
 | link        | 项目网址，可留空                                                   |                                                                 |
