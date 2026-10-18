@@ -851,9 +851,13 @@ main.home {
   margin: 0 0 12px;
   font-size: 0.95rem;
 }
+/* never wider than the file itself, so small figures from the Sheet are not upscaled */
 .project-details img {
-  width: 100%;
-  margin-top: 8px;
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 8px auto 0;
   border: 1px solid var(--line);
   border-radius: 8px;
 }
