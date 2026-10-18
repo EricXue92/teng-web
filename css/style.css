@@ -937,7 +937,7 @@ main.home {
   stroke-linejoin: round;
 }
 
-/* theme page (research-*.html): one row per research point, figure on the left, optional h2 title and description on the right */
+/* theme page (research-*.html): one block per research point, the figure across the full width (detailed diagrams are unreadable when narrower), optional h2 title and description below */
 .back-link {
   display: inline-block;
   margin-bottom: 12px;
@@ -945,9 +945,7 @@ main.home {
 }
 .research-point {
   display: grid;
-  grid-template-columns: 2fr 3fr;
-  gap: 36px;
-  align-items: start;
+  gap: 20px;
   padding: 28px 0;
   border-top: 1px solid var(--line);
 }
@@ -963,8 +961,14 @@ main.home {
   margin: 0;
   font-size: 1.02rem;
 }
+.research-point > a {
+  justify-self: center;
+}
+/* never wider than the file itself, so small figures are not upscaled */
 .research-point img {
-  width: 100%;
+  display: block;
+  width: auto;
+  max-width: 100%;
   height: auto;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -972,7 +976,6 @@ main.home {
 }
 @media (max-width: 768px) {
   .research-point {
-    grid-template-columns: 1fr;
     gap: 14px;
     padding: 20px 0;
   }
