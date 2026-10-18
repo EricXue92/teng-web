@@ -358,6 +358,25 @@ main.container > :last-child {
   font-size: 1.05rem;
 }
 
+/* Long-form paragraphs are justified. Phones get ragged-right text: a
+   phone-width justified column opens wide gaps between words. */
+.bio p,
+.page-intro.justified,
+.research-point p,
+.project .desc,
+.project-details p {
+  text-align: justify;
+}
+@media (max-width: 768px) {
+  .bio p,
+  .page-intro.justified,
+  .research-point p,
+  .project .desc,
+  .project-details p {
+    text-align: left;
+  }
+}
+
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -500,7 +519,6 @@ main.home {
 .bio p {
   margin: 0;
   font-size: 1.05rem;
-  text-align: justify;
 }
 .bio p + p {
   margin-top: 12px;
@@ -573,10 +591,6 @@ main.home {
   }
   .bio h2 {
     font-size: 1.9rem;
-  }
-  /* Justified text leaves wide gaps in a phone-width column. */
-  .bio p {
-    text-align: left;
   }
   .bio-facts {
     grid-template-columns: 1fr;
