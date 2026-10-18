@@ -463,6 +463,18 @@
     }
   }
 
+  // The biography's citation count; on failure the number in the HTML stays.
+  async function initScholar() {
+    const el = $("#scholar-citations");
+    if (!el) return;
+    try {
+      const { citations } = await window.SiteData.loadScholar();
+      if (citations > 0) el.textContent = citations.toLocaleString("en-US");
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initNav();
     initPublications();
@@ -470,5 +482,6 @@
     initTeam();
     initProjects();
     initAwards();
+    initScholar();
   });
 })();

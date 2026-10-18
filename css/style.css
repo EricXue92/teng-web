@@ -501,6 +501,9 @@ main.home {
   margin: 0;
   font-size: 1.05rem;
 }
+.bio p + p {
+  margin-top: 12px;
+}
 .bio-facts {
   display: grid;
   grid-template-columns: 1fr 1fr;

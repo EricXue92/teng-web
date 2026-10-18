@@ -204,11 +204,17 @@
       );
   }
 
+  // Google Scholar stats, refreshed daily by scripts/fetch_scholar.py.
+  async function loadScholar() {
+    return JSON.parse(await fetchText("data/scholar.json"));
+  }
+
   window.SiteData = {
     loadNews,
     loadTeam,
     loadProjects,
     loadAwards,
     loadPublications,
+    loadScholar,
   };
 })();

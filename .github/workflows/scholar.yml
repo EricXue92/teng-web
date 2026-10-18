@@ -1,0 +1,26 @@
+name: Refresh Google Scholar citations
+
+on:
+  schedule:
+    - cron: "17 2 * * *" # daily, 10:17 Hong Kong time
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    # Only the primary repo commits; the legacy mirror receives the commit
+    # with the next regular push.
+    if: github.repository == 'polyucmi/teng-web'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/fetch_scholar.py
+      - name: Commit if changed
+        run: |
+          git diff --quiet data/scholar.json && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Data: refresh Google Scholar citation count" data/scholar.json
+          git push
