@@ -2,7 +2,9 @@ name: Refresh Google Scholar citations
 
 on:
   schedule:
-    - cron: "17 2 * * *" # daily, 10:17 Hong Kong time
+    # Four times a day: Scholar sometimes blocks a runner, and one success a
+    # day is enough. 10:17, 16:17, 22:17 and 04:17 Hong Kong time.
+    - cron: "17 2,8,14,20 * * *"
   workflow_dispatch:
 
 permissions:
@@ -15,7 +17,7 @@ jobs:
     if: github.repository == 'polyucmi/teng-web'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: python3 scripts/fetch_scholar.py
       - name: Commit if changed
         run: |
@@ -23,4 +25,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
           git commit -m "Data: refresh Google Scholar citation count" data/scholar.json
+          git pull --rebase
           git push
