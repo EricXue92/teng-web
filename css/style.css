@@ -978,6 +978,10 @@ main.home {
   border-radius: 8px;
   background: #fff;
 }
+/* tall figures stay within one screen; the link opens the full size */
+.research-point img.portrait {
+  max-height: 85vh;
+}
 @media (max-width: 768px) {
   .research-point {
     gap: 14px;
