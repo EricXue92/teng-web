@@ -249,11 +249,17 @@
           ? `<ul class="timeline">${items.map(newsHTML).join("")}</ul>`
           : `<p class="notice">No news yet.</p>`;
       };
+      // the categories MAINTENANCE.md offers are always shown, even before they have news
       const cats = [
-        "All",
-        ...new Set(news.map((n) => n.category).filter(Boolean)),
+        ...new Set([
+          "All",
+          "Event",
+          "Publication",
+          "Award",
+          ...news.map((n) => n.category).filter(Boolean),
+        ]),
       ];
-      if (filters && cats.length > 2) {
+      if (filters) {
         filters.innerHTML = cats
           .map(
             (c) =>
