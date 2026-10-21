@@ -481,8 +481,24 @@
     }
   }
 
+  // Featured videos: the play button starts playback and hands over to the
+  // native controls.
+  function initVideos() {
+    document.querySelectorAll(".video-frame").forEach((frame) => {
+      const video = frame.querySelector("video");
+      const button = frame.querySelector(".video-play");
+      if (!video || !button) return;
+      button.addEventListener("click", () => {
+        video.controls = true;
+        video.play();
+      });
+      video.addEventListener("play", () => frame.classList.add("is-playing"));
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initNav();
+    initVideos();
     initPublications();
     initNews();
     initTeam();
