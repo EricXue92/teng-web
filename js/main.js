@@ -481,18 +481,21 @@
     }
   }
 
-  // Featured videos: the play button starts playback and hands over to the
-  // native controls.
+  // Featured videos play muted on a loop (browsers only autoplay muted video);
+  // the native controls appear once playing so visitors can unmute. The play
+  // button stays as a fallback when autoplay is blocked or reduced motion is set.
   function initVideos() {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     document.querySelectorAll(".video-frame").forEach((frame) => {
       const video = frame.querySelector("video");
       const button = frame.querySelector(".video-play");
       if (!video || !button) return;
-      button.addEventListener("click", () => {
+      button.addEventListener("click", () => video.play());
+      video.addEventListener("play", () => {
         video.controls = true;
-        video.play();
+        frame.classList.add("is-playing");
       });
-      video.addEventListener("play", () => frame.classList.add("is-playing"));
+      if (!reduceMotion) video.play().catch(() => {});
     });
   }
 
