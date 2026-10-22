@@ -2,9 +2,10 @@ name: Refresh Google Scholar citations
 
 on:
   schedule:
-    # Four times a day: Scholar sometimes blocks a runner, and one success a
-    # day is enough. 10:17, 16:17, 22:17 and 04:17 Hong Kong time.
-    - cron: "17 2,8,14,20 * * *"
+    # Every hour: Scholar answers 403 to about two runs in three (each run is
+    # a fresh runner, so each attempt is independent), and one success a day
+    # is enough. Four runs a day went a day or more without one.
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 permissions:

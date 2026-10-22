@@ -2,8 +2,8 @@
 """Refresh data/scholar.json with the total citation count from Google Scholar.
 
 The homepage biography reads this file to show the live citation count.
-A GitHub Actions job (.github/workflows/scholar.yml) runs it four times a
-day; it can also be run by hand:
+A GitHub Actions job (.github/workflows/scholar.yml) runs it every hour;
+it can also be run by hand:
 
     python3 scripts/fetch_scholar.py
 """
@@ -16,8 +16,9 @@ import urllib.request
 from pathlib import Path
 
 SCHOLAR_USER = "ohpjk2kAAAAJ"
-# Scholar sometimes answers 403 to cloud IPs such as GitHub's runners; the
-# regional hosts serve the same profile and are tried in turn.
+# Scholar answers 403 to cloud IPs such as GitHub's runners about two times
+# in three; the regional hosts serve the same profile and are tried in turn,
+# and the hourly schedule gives enough independent attempts per day.
 HOSTS = ["scholar.google.com", "scholar.google.com.hk", "scholar.google.co.uk"]
 # A blocked run only warns, since a later run usually gets through. The job
 # fails once the count has not changed for this long, so a lasting block

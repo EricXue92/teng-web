@@ -204,7 +204,7 @@
       );
   }
 
-  // Google Scholar stats, refreshed daily by scripts/fetch_scholar.py.
+  // Google Scholar stats, refreshed hourly by scripts/fetch_scholar.py.
   async function loadScholar() {
     return JSON.parse(await fetchText("data/scholar.json"));
   }
