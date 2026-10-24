@@ -169,8 +169,10 @@ small,
   mask-image: linear-gradient(to left, #000 65%, transparent);
 }
 
-/* Home page: a faint rose in the top right corner, behind the content. */
+/* Home page: a wider column than the other pages (header and footer follow it),
+   and a faint rose in the top right corner, behind the content. */
 .page-home {
+  --container: 1140px;
   position: relative;
 }
 .page-home::before {
