@@ -17,7 +17,9 @@ python3 scripts/fetch_citations.py # refresh data/citations.json (authors/volume
 python3 scripts/fetch_scholar.py   # refresh data/scholar.json (Google Scholar citation count)
 ```
 
-`.github/workflows/scholar.yml` runs `fetch_scholar.py` every hour on `polyucmi/teng-web` and commits `data/scholar.json` when the count changes. Scholar answers 403 to roughly two runs in three (hence the hourly schedule): a blocked run only logs a warning, and the job fails only once the count is more than 7 days old. Commits from the job mean `main` there can move ahead of the local copy: `git pull --rebase` before pushing. The legacy repo gets that commit with the next push.
+The citation count is refreshed daily at 09:30 from the maintainer's Mac: launchd (`~/Library/LaunchAgents/com.xue.teng-web-scholar.plist`, log in `~/Library/Logs/teng-web-scholar.log`) runs `scripts/scholar_local.sh`, which works in its own clone under `~/Library/Application Support/teng-web-scholar/`, runs `fetch_scholar.py` and pushes `data/scholar.json` to both repositories when the count changes. It sets the proxy variables itself when Clash (port 7897) is listening, since launchd does not inherit them. Run it by hand with `launchctl kickstart gui/$(id -u)/com.xue.teng-web-scholar`.
+
+As a backup, `.github/workflows/scholar.yml` runs `fetch_scholar.py` every hour on `polyucmi/teng-web` and commits `data/scholar.json` when the count changes. Scholar answers 403 to roughly two runs in three (hence the hourly schedule): a blocked run only logs a warning, and the job fails only once the count is more than 7 days old. Commits from the job mean `main` there can move ahead of the local copy: `git pull --rebase` before pushing. The legacy repo gets that commit with the next push.
 
 Opening `index.html` via `file://` does not work: the pages use `fetch()`. Always preview through an HTTP server.
 
@@ -32,7 +34,7 @@ Three content tiers, each with a different owner and source:
 | News, Team, Projects, Awards                          | One Google Sheet each, shared "anyone with link", read as `.../export?format=csv&gid=…`          | `js/data.js` → `loadNews` / `loadTeam` / `loadProjects` / `loadAwards` |
 | Publications                                          | ORCID public API, fetched live in the browser (CORS `*`); falls back to `data/publications.json` | `js/data.js` → `loadPublications`      |
 | Bio, CV highlights, research themes, courses, contact | Hard-coded in the HTML pages                                                                     | none                                   |
-| Citation count in the homepage bio                    | Google Scholar, scraped hourly by a GitHub Action into `data/scholar.json`                        | `js/data.js` → `loadScholar`           |
+| Citation count in the homepage bio                    | Google Scholar, scraped daily from the maintainer's Mac (GitHub Action as backup) into `data/scholar.json` | `js/data.js` → `loadScholar`           |
 
 - `js/config.js` is the only configuration file: the Sheet CSV URLs and the ORCID id. Empty Sheet URLs make the loaders read `data/news.csv` / `data/team.csv` / `data/projects.csv` / `data/awards.csv` instead, which double as the Sheet column templates. Keep the CSV headers and the Sheet headers identical.
 - `js/csv.js` is a hand-written RFC-4180 parser; `js/data.js` returns plain objects; `js/main.js` does all rendering and only touches containers that exist on the current page (`#news-list`, `#team-current`, `#projects-list`, `#awards-list`, `#pub-list`, …). Adding a data-driven block means adding a container id and an `init*` function in `main.js`.
